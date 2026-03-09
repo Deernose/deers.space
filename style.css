@@ -1,0 +1,434 @@
+/* style.css */
+
+
+
+/* Estilos Globais */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+/* Estilos para a Mini-Header */
+.mini-header {
+    background-color: #384d5c;
+    width: 100%;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.mini-header .social-icons ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.mini-header .social-icons li {
+    margin-left: 15px;
+}
+
+.mini-header .social-icons a {
+    color: #fff;
+    font-size: 18px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.mini-header .social-icons a:hover {
+    color: #ff9d00;
+}
+/* Estilo da barra de jogos */
+.scrolling-bar {
+    width: 100%;
+    background-color: #1f1f1f;
+    overflow: hidden;
+    position: relative;
+}
+
+.scrolling-content {
+    display: flex;
+    animation: scroll 75s linear infinite;
+    will-change: transform;
+}
+
+.scrolling-content .game-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    border-right: 1px solid #333;
+    white-space: nowrap;
+}
+
+.game-item img {
+    max-width: 100px;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.game-item p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #242424;
+    padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar .logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #ff5722;
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar ul li {
+    margin-left: 20px;
+}
+
+.navbar ul li a {
+    font-size: 16px;
+    color: #fff;
+    transition: color 0.3s;
+}
+
+.navbar ul li a:hover {
+    color: #ff5722;
+}
+.navbar ul li a {
+    font-size: 16px;
+    color: #fff;
+    transition: color 0.5s ease, transform 0.3s ease;
+}
+
+.navbar ul li a:hover {
+    color: #ff5722;
+    transform: scale(1.1);
+}
+
+/* Conteúdo Principal */
+.hero {
+    width: 100%;
+    text-align: center;
+    padding: 150px 0px 250px;
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+    background-attachment: fixed; /* Ativa o efeito parallax */
+}
+.hero {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    padding: 150px 0 250px;
+    overflow: hidden;
+    color: #fff;
+}
+
+.curved-lines svg {
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    z-index: -1;
+    stroke-opacity: 0.7; /* Transparência para misturar as cores */
+}
+
+/* Animações do movimento ondulante, 50% mais lento */
+@keyframes snakeMove {
+    0% {
+        transform: translateX(0) rotate(0deg);
+    }
+    25% {
+        transform: translateX(8px) rotate(1deg);
+    }
+    50% {
+        transform: translateX(-8px) rotate(-1deg);
+    }
+    75% {
+        transform: translateX(8px) rotate(1deg);
+    }
+    100% {
+        transform: translateX(0) rotate(0deg);
+    }
+}
+
+@keyframes snakeMove2 {
+    0% {
+        transform: translateX(0) rotate(0deg);
+    }
+    25% {
+        transform: translateX(-10px) rotate(-2deg);
+    }
+    50% {
+        transform: translateX(10px) rotate(2deg);
+    }
+    75% {
+        transform: translateX(-10px) rotate(-2deg);
+    }
+    100% {
+        transform: translateX(0) rotate(0deg);
+    }
+}
+
+/* Aplicar animações nas curvas com movimento mais lento */
+.curved-lines path:nth-child(odd) {
+    animation: snakeMove 150s ease-in-out infinite;
+}
+
+.curved-lines path:nth-child(even) {
+    animation: snakeMove2 250s ease-in-out infinite;
+}
+
+.hero h1 {
+    font-size: 52px;
+    margin-bottom: 20px;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+/* Seção Sobre Nós */
+.about {
+    padding: 60px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1f1f1f;
+}
+
+.about .text,
+.about .image {
+    flex: 1;
+    min-width: 280px;
+    padding: 20px;
+}
+
+.about .text {
+    margin-right: 20px;
+}
+
+.about .text h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #ff9800;
+}
+
+.about .text p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.about .image {
+    margin-left: 20px;
+    text-align: center;
+}
+
+.about img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+/* Seção Comunidade */
+.community {
+    padding: 60px 20px;
+    background-color: #242424;
+    color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.community .content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.community .text,
+.community .discord-invite {
+    flex: 1;
+    min-width: 280px;
+}
+
+.community .text {
+    margin-right: 20px;
+    text-align: left;
+}
+
+.community .text h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #7289DA;
+}
+
+.community .text p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.community .discord-invite {
+    margin-left: 20px;
+    text-align: center;
+}
+
+.community .discord-invite a {
+    display: block;
+}
+
+.community .discord-invite img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.community .discord-invite .button {
+    background-color: #7289DA;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 18px;
+    color: #fff;
+    transition: background-color 0.3s;
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+}
+
+.community .discord-invite .button:hover {
+    background-color: #5b6eae;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .community {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .community .content {
+        flex-direction: column;
+    }
+
+    .community .text,
+    .community .discord-invite {
+        margin: 0;
+        padding: 20px;
+    }
+
+    .community .discord-invite {
+        margin-top: 20px;
+    }
+}
+
+.footer {
+    background-color: #1f1f1f;
+    padding: 20px;
+    text-align: center;
+    color: #bbb;
+}
+
+@media (max-width: 768px) {
+    .scrolling-content {
+        animation: scroll 25s linear infinite;
+    }
+    .navbar ul li {
+        margin-left: 10px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero p {
+        font-size: 18px;
+    }
+
+    .about {
+        padding: 0px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about .text,
+    .about .image {
+        margin: 0;
+    }
+
+    .about .image {
+        margin-top: 20px;
+    }
+
+    .community {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .community .content {
+        flex-direction: column;
+    }
+
+    .community .text,
+    .community .discord-invite {
+        margin: 0;
+    }
+
+    .community .discord-invite {
+        margin-top: 20px;
+    }
+}
