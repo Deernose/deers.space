@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <title>Extrair texto de múltiplos PDFs</title>
+    <!-- Carrega a lib principal do PDF.js (versão .js, não .mjs) -->
+    <script src="pdf.js"></script>
+    <!-- Carrega a biblioteca JSZip a partir de uma CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.0/jszip.min.js"></script>
+    <style>
+      /* Reseta estilos básicos */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        background: #f5f5f5;
+        padding: 20px;
+      }
+      header {
+        margin-bottom: 20px;
+      }
+      h1 {
+        margin-bottom: 20px;
+        color: #333;
+      }
+      /* Container de botões (copiar e download) no header */
+      #copyButtonsContainer {
+        margin-bottom: 10px;
+      }
+      .copy-btn {
+        background-color: #dc3545; /* Vermelho */
+        border: none;
+        color: #fff;
+        padding: 6px 12px;
+        margin: 4px;
+        cursor: pointer;
+        border-radius: 4px;
+        font-size: 14px;
+      }
+      .copy-btn:hover {
+        background-color: #c82333;
+      }
+      .download-btn {
+        background-color: #28a745; /* Verde */
+        border: none;
+        color: #fff;
+        padding: 6px 12px;
+        margin: 4px;
+        cursor: pointer;
+        border-radius: 4px;
+        font-size: 14px;
+      }
+      .download-btn:hover {
+        background-color: #218838;
+      }
+      /* Botão Baixar Todos com cor de destaque */
+      .download-all-btn {
+        background-color: #ffc107; /* Amarelo de destaque */
+        border: none;
+        color: #fff;
+        padding: 6px 12px;
+        margin: 4px;
+        cursor: pointer;
+        border-radius: 4px;
+        font-size: 14px;
+      }
+      .download-all-btn:hover {
+        background-color: #e0a800;
+      }
+      /* Seção de controles (selecionar arquivos, etc.) */
+      .controls {
+        margin-bottom: 20px;
+      }
+      input[type="file"] {
+        margin-right: 10px;
+      }
+      button {
+        background-color: #007bff;
+        border: none;
+        color: #fff;
+        padding: 8px 16px;
+        margin-right: 8px;
+        cursor: pointer;
+        border-radius: 4px;
+        font-size: 14px;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+      /* Container de cada resultado */
+      .file-result {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 20px;
+      }
+      .file-title {
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      .file-text {
+        white-space: pre-wrap; /* permite quebrar linhas automaticamente */
+        overflow-y: auto;
+        max-height: 300px;     /* altura máxima de exibição */
+      }
+      /* Barra de progresso */
+      .progress-container {
+        width: 100%;
+        background-color: #e0e0e0;
+        border-radius: 4px;
+        overflow: hidden;
+        margin-bottom: 10px;
+        height: 20px;
+      }
+      .progress-bar {
+        height: 100%;
+        width: 0%;
+        background-color: #007bff;
+        transition: width 0.3s;
+      }
+      .progress-text {
+        font-size: 12px;
+        margin-bottom: 5px;
+      }
+      /* Container para agrupar os botões */
+      .button-group {
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Extrair texto de vários PDFs</h1>
+      <!-- Botões de copiar, baixar individualmente e baixar todos serão criados dinamicamente aqui -->
+      <div id="copyButtonsContainer"></div>
+    </header>
+
+    <div class="controls">
+      <!-- Permite selecionar múltiplos arquivos -->
+      <input type="file" id="fileInput" accept=".pdf" multiple />
+      <button id="btnExtract">Extrair texto</button>
+    </div>
+
+    <!-- Resultados vão aparecer aqui -->
+    <div id="resultsContainer"></div>
+
+    <script>
+      // Configura o worker do PDF.js (ajuste o caminho se necessário)
+      pdfjsLib.GlobalWorkerOptions.workerSrc = 'pdf.worker.js';
+
+      const fileInput = document.getElementById('fileInput');
+      const btnExtract = document.getElementById('btnExtract');
+      const resultsContainer = document.getElementById('resultsContainer');
+      const copyButtonsContainer = document.getElementById('copyButtonsContainer');
+
+      // Arrays para armazenar os textos e nomes de cada PDF
+      let pdfTexts = [];
+      let pdfNames = [];
+
+      btnExtract.addEventListener('click', async () => {
+        const files = fileInput.files;
+        if (!files || files.length === 0) {
+          alert("Selecione pelo menos um PDF!");
+          return;
+        }
+
+        // Limpa resultados anteriores
+        resultsContainer.innerHTML = '';
+        copyButtonsContainer.innerHTML = '';
+        pdfTexts = [];
+        pdfNames = [];
+
+        // Processa cada arquivo PDF
+        for (let i = 0; i < files.length; i++) {
+          const file = files[i];
+          pdfNames.push(file.name);
+
+          // Cria o container para este arquivo
+          const fileResultDiv = document.createElement('div');
+          fileResultDiv.className = 'file-result';
+
+          // Título com o nome do arquivo
+          const fileTitle = document.createElement('div');
+          fileTitle.className = 'file-title';
+          fileTitle.textContent = `Arquivo ${i + 1}: ${file.name}`;
+          fileResultDiv.appendChild(fileTitle);
+
+          // Elemento para exibir a porcentagem e andamento
+          const progressText = document.createElement('div');
+          progressText.className = 'progress-text';
+          progressText.textContent = 'Aguardando processamento...';
+          fileResultDiv.appendChild(progressText);
+
+          // Cria a barra de progresso
+          const progressContainer = document.createElement('div');
+          progressContainer.className = 'progress-container';
+          const progressBar = document.createElement('div');
+          progressBar.className = 'progress-bar';
+          progressContainer.appendChild(progressBar);
+          fileResultDiv.appendChild(progressContainer);
+
+          // Área onde o texto extraído será exibido
+          const fileTextPre = document.createElement('pre');
+          fileTextPre.className = 'file-text';
+          fileTextPre.textContent = 'Processando...';
+          fileResultDiv.appendChild(fileTextPre);
+
+          resultsContainer.appendChild(fileResultDiv);
+
+          // Lê o arquivo como ArrayBuffer
+          let arrayBuffer;
+          try {
+            arrayBuffer = await file.arrayBuffer();
+          } catch (err) {
+            fileTextPre.textContent = 'Erro ao ler o arquivo.';
+            continue;
+          }
+
+          // Carrega o PDF com PDF.js
+          let pdf;
+          try {
+            pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+          } catch (err) {
+            fileTextPre.textContent = 'Erro ao carregar o PDF.';
+            continue;
+          }
+          
+          let fullText = '';
+          const totalPages = pdf.numPages;
+          // Atualiza o progresso conforme cada página é processada
+          for (let pageNum = 1; pageNum <= totalPages; pageNum++) {
+            try {
+              const page = await pdf.getPage(pageNum);
+              const textContent = await page.getTextContent();
+              const pageText = textContent.items.map(item => item.str).join(' ');
+              fullText += pageText + "\n\n";
+            } catch (err) {
+              console.error(`Erro na página ${pageNum}:`, err);
+              fullText += `\n[Erro ao extrair página ${pageNum}]\n`;
+            }
+            // Atualiza a barra de progresso e o texto de status
+            const progressPercent = ((pageNum / totalPages) * 100).toFixed(2);
+            progressBar.style.width = progressPercent + '%';
+            progressText.textContent = `Processando página ${pageNum} de ${totalPages} (${progressPercent}%)`;
+          }
+
+          // Exibe o texto extraído
+          fileTextPre.textContent = fullText;
+          pdfTexts.push(fullText);
+
+          // Remove a barra de progresso e o texto de status após o carregamento
+          progressContainer.remove();
+          progressText.remove();
+        }
+
+        // Para cada arquivo, cria um grupo de botões (Copiar e Baixar) no header
+        for (let i = 0; i < pdfTexts.length; i++) {
+          const buttonGroup = document.createElement('div');
+          buttonGroup.className = 'button-group';
+
+          const copyBtn = document.createElement('button');
+          copyBtn.className = 'copy-btn';
+          copyBtn.textContent = `Copiar arquivo ${i + 1}`;
+          copyBtn.addEventListener('click', () => {
+            const textToCopy = pdfTexts[i];
+            if (!textToCopy) {
+              alert("Não há texto para copiar.");
+              return;
+            }
+            navigator.clipboard.writeText(textToCopy)
+              .then(() => {
+                alert(`Texto do arquivo ${i + 1} copiado!`);
+              })
+              .catch(err => {
+                console.error("Erro ao copiar texto:", err);
+              });
+          });
+          buttonGroup.appendChild(copyBtn);
+
+          const downloadBtn = document.createElement('button');
+          downloadBtn.className = 'download-btn';
+          downloadBtn.textContent = `Baixar arquivo ${i + 1}`;
+          downloadBtn.addEventListener('click', () => {
+            const blob = new Blob([pdfTexts[i]], { type: 'text/plain' });
+            // Garante que o nome tenha a extensão .txt
+            const fileName = pdfNames[i].replace(/\.pdf$/i, '') + '.txt';
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = fileName;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+          });
+          buttonGroup.appendChild(downloadBtn);
+
+          copyButtonsContainer.appendChild(buttonGroup);
+        }
+
+        // Cria o botão "Baixar todos" para empacotar todos os arquivos TXT em um ZIP
+        if (pdfTexts.length > 0) {
+          const downloadAllBtn = document.createElement('button');
+          downloadAllBtn.className = 'download-all-btn';
+          downloadAllBtn.textContent = 'Baixar todos';
+          downloadAllBtn.addEventListener('click', () => {
+            const zip = new JSZip();
+            for (let i = 0; i < pdfTexts.length; i++) {
+              const fileName = pdfNames[i].replace(/\.pdf$/i, '') + '.txt';
+              zip.file(fileName, pdfTexts[i]);
+            }
+            zip.generateAsync({ type: "blob" }).then(function(content) {
+              const a = document.createElement('a');
+              a.href = URL.createObjectURL(content);
+              a.download = "pdf_texts.zip";
+              document.body.appendChild(a);
+              a.click();
+              document.body.removeChild(a);
+            });
+          });
+          // Adiciona o botão "Baixar todos" no início do container
+          copyButtonsContainer.insertBefore(downloadAllBtn, copyButtonsContainer.firstChild);
+        }
+      });
+    </script>
+  </body>
+</html>
