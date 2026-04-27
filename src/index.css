@@ -2,104 +2,583 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 0 0% 7%;
+    --foreground: 0 0% 100%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 100%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 12%;
+    --popover-foreground: 0 0% 100%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 14 100% 57%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 205 24% 29%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 73%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 36 100% 50%;
+    --accent-foreground: 0 0% 7%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 36 100% 50%;
 
-    --radius: 0.5rem;
+    --radius: 0.625rem;
 
-    --sidebar-background: 0 0% 98%;
+    --sidebar-background: 0 0% 9%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 14 100% 57%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 15%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 0 0% 20%;
+    --sidebar-ring: 36 100% 50%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --deer-surface: 0 0% 12%;
+    --deer-surface-elevated: 0 0% 14%;
+    --deer-mini: 205 24% 29%;
+    --deer-brand: 14 100% 57%;
+    --deer-about-title: 36 100% 50%;
+    --deer-discord: 227 58% 65%;
+    --deer-discord-hover: 227 35% 52%;
+    --deer-footer-text: 0 0% 73%;
+    --deer-orange-1: 26 100% 50%;
+    --deer-orange-2: 14 100% 50%;
+    --deer-orange-3: 34 100% 50%;
+    --deer-orange-4: 36 100% 63%;
+    --deer-accent: 14 100% 57%;
+    --deer-coral: 14 100% 63%;
+    --deer-gold: 45 100% 58%;
+    --deer-amber: 34 100% 50%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    --background: 0 0% 7%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 12%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 14 100% 57%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 205 24% 29%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 73%;
+    --accent: 36 100% 50%;
+    --accent-foreground: 0 0% 7%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 36 100% 50%;
+    --sidebar-background: 0 0% 9%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 14 100% 57%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 0 0% 15%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 0 0% 20%;
+    --sidebar-ring: 36 100% 50%;
   }
-}
 
-@layer base {
   * {
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background text-foreground;
+    margin: 0;
+    overflow-x: hidden;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+@layer components {
+  .site-shell {
+    min-height: 100vh;
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+
+  .mini-header {
+    width: 100%;
+    background: hsl(var(--deer-mini));
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .hidden-links {
+    display: flex;
+    gap: 10px;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .hidden-links a {
+    color: transparent;
+    padding: 5px;
+    white-space: nowrap;
+  }
+
+  .social-icons ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .social-icons a {
+    color: hsl(var(--foreground));
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+
+  .social-icons a:hover,
+  .social-icons a:focus-visible {
+    color: hsl(var(--deer-about-title));
+    transform: translateY(-2px);
+  }
+
+  .scrolling-bar {
+    width: 100%;
+    background: hsl(var(--deer-surface));
+    overflow: hidden;
+    position: relative;
+  }
+
+  .scrolling-content {
+    display: flex;
+    width: max-content;
+    animation: scroll 75s linear infinite;
+    will-change: transform;
+  }
+
+  .game-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    border-right: 1px solid hsl(var(--border));
+    white-space: nowrap;
+    min-width: 310px;
+  }
+
+  .game-item img {
+    width: 100px;
+    height: 56px;
+    margin-right: 10px;
+    border-radius: 5px;
+    object-fit: cover;
+  }
+
+  .game-item p {
+    margin: 5px 0;
+    font-size: 14px;
+    line-height: 1.15;
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: hsl(var(--deer-surface-elevated));
+    padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .navbar .logo {
+    font-size: 28px;
+    font-weight: 700;
+    color: hsl(var(--deer-brand));
+    white-space: nowrap;
+  }
+
+  .navbar ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .navbar ul li {
+    margin-left: 20px;
+  }
+
+  .navbar ul li a {
+    font-size: 16px;
+    color: hsl(var(--foreground));
+    transition: color 0.5s ease, transform 0.3s ease;
+    display: inline-block;
+  }
+
+  .navbar ul li a:hover,
+  .navbar ul li a:focus-visible {
+    color: hsl(var(--deer-brand));
+    transform: scale(1.1);
+  }
+
+  .hero {
+    width: 100%;
+    text-align: center;
+    padding: 150px 20px 250px;
+    position: relative;
+    overflow: hidden;
+    color: hsl(var(--foreground));
+    min-height: 560px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .curved-lines svg {
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    z-index: 0;
+    stroke-opacity: 0.7;
+    pointer-events: none;
+  }
+
+  .curved-lines path:nth-child(odd) {
+    animation: snakeMove 150s ease-in-out infinite;
+  }
+
+  .curved-lines path:nth-child(even) {
+    animation: snakeMove2 250s ease-in-out infinite;
+  }
+
+  .hero h1,
+  .hero p,
+  .hero .button {
+    position: relative;
+    z-index: 1;
+    animation: fadeIn 1.5s ease-in-out;
+  }
+
+  .hero h1 {
+    font-size: 52px;
+    line-height: 1.1;
+    margin: 0 0 20px;
+    font-weight: 800;
+  }
+
+  .hero p {
+    font-size: 22px;
+    margin: 0 0 30px;
+    max-width: 760px;
+  }
+
+  .button {
+    background: hsl(var(--deer-brand));
+    color: hsl(var(--primary-foreground));
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 18px;
+    display: inline-block;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+  .button:hover,
+  .button:focus-visible {
+    background: hsl(var(--deer-about-title));
+    transform: translateY(-2px);
+  }
+
+  .about {
+    padding: 60px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background: hsl(var(--deer-surface));
+  }
+
+  .about .text,
+  .about .image {
+    flex: 1;
+    min-width: 280px;
+    padding: 20px;
+  }
+
+  .about .text {
+    margin-right: 20px;
+  }
+
+  .about .text h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: hsl(var(--deer-about-title));
+    font-weight: 800;
+  }
+
+  .about .text p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+
+  .about .image {
+    margin-left: 20px;
+    text-align: center;
+  }
+
+  .about img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    display: inline-block;
+  }
+
+  .community {
+    padding: 60px 20px;
+    background: hsl(var(--deer-surface-elevated));
+    color: hsl(var(--foreground));
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .community .content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+  }
+
+  .community .text,
+  .community .discord-invite {
+    flex: 1;
+    min-width: 280px;
+  }
+
+  .community .text {
+    margin-right: 20px;
+    text-align: left;
+  }
+
+  .community .text h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: hsl(var(--deer-discord));
+    font-weight: 800;
+  }
+
+  .community .text p {
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+
+  .community .discord-invite {
+    margin-left: 20px;
+    text-align: center;
+  }
+
+  .community .discord-invite a {
+    display: block;
+  }
+
+  .community .discord-invite img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .community .discord-invite .button-discord {
+    background: hsl(var(--deer-discord));
+    color: hsl(var(--primary-foreground));
+    display: inline-block;
+    margin-top: 20px;
+  }
+
+  .community .discord-invite .button-discord:hover,
+  .community .discord-invite .button-discord:focus-visible {
+    background: hsl(var(--deer-discord-hover));
+  }
+
+  .footer {
+    background: hsl(var(--deer-surface));
+    padding: 20px;
+    text-align: center;
+    color: hsl(var(--deer-footer-text));
+  }
+
+  .footer a {
+    color: hsl(var(--foreground));
+    font-weight: 700;
+  }
+
+  .footer-nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 12px 0 0;
+  }
+}
+
+@layer utilities {
+  @keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  @keyframes snakeMove {
+    0% { transform: translateX(0) rotate(0deg); }
+    25% { transform: translateX(8px) rotate(1deg); }
+    50% { transform: translateX(-8px) rotate(-1deg); }
+    75% { transform: translateX(8px) rotate(1deg); }
+    100% { transform: translateX(0) rotate(0deg); }
+  }
+
+  @keyframes snakeMove2 {
+    0% { transform: translateX(0) rotate(0deg); }
+    25% { transform: translateX(-10px) rotate(-2deg); }
+    50% { transform: translateX(10px) rotate(2deg); }
+    75% { transform: translateX(-10px) rotate(-2deg); }
+    100% { transform: translateX(0) rotate(0deg); }
+  }
+
+  @keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+}
+
+@media (max-width: 768px) {
+  .mini-header {
+    justify-content: flex-end;
+  }
+
+  .hidden-links {
+    display: none;
+  }
+
+  .scrolling-content {
+    animation-duration: 25s;
+  }
+
+  .navbar {
+    align-items: flex-start;
+    gap: 14px;
+    flex-direction: column;
+  }
+
+  .navbar ul {
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .navbar ul li {
+    margin-left: 0;
+  }
+
+  .navbar ul li a {
+    font-size: 15px;
+  }
+
+  .hero {
+    padding: 110px 20px 180px;
+    min-height: 500px;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .hero p {
+    font-size: 18px;
+  }
+
+  .about {
+    padding: 0;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about .text,
+  .about .image {
+    margin: 0;
+  }
+
+  .about .image {
+    margin-top: 20px;
+  }
+
+  .community {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .community .content {
+    flex-direction: column;
+  }
+
+  .community .text,
+  .community .discord-invite {
+    margin: 0;
+    padding: 20px;
+  }
+
+  .community .text {
+    text-align: center;
+  }
+
+  .community .discord-invite {
+    margin-top: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
   }
 }
