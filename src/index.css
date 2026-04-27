@@ -215,7 +215,7 @@
     position: relative;
     overflow: hidden;
     color: hsl(var(--foreground));
-    background: hsl(var(--background));
+    background: linear-gradient(135deg, hsl(var(--deer-orange-2)), hsl(var(--deer-orange-3)) 55%, hsl(var(--deer-about-title)));
     min-height: 560px;
     display: flex;
     flex-direction: column;
