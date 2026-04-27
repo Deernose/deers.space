@@ -225,20 +225,23 @@
   .curved-lines svg {
     position: absolute;
     top: -10%;
-    left: -10%;
-    width: 120%;
+    left: -18%;
+    width: 136%;
     height: 120%;
     z-index: 0;
     stroke-opacity: 0.7;
     pointer-events: none;
+    animation: lavaDrift 32s ease-in-out infinite alternate;
   }
 
-  .curved-lines path:nth-child(odd) {
-    animation: snakeMove 150s ease-in-out infinite;
+  .lava-line {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: lavaSway 14s ease-in-out infinite alternate;
   }
 
-  .curved-lines path:nth-child(even) {
-    animation: snakeMove2 250s ease-in-out infinite;
+  .lava-line-slow {
+    animation: lavaSwaySlow 22s ease-in-out infinite alternate;
   }
 
   .hero h1,
@@ -418,20 +421,22 @@
 }
 
 @layer utilities {
-  @keyframes snakeMove {
-    0% { transform: translateX(0) rotate(0deg); }
-    25% { transform: translateX(8px) rotate(1deg); }
-    50% { transform: translateX(-8px) rotate(-1deg); }
-    75% { transform: translateX(8px) rotate(1deg); }
-    100% { transform: translateX(0) rotate(0deg); }
+  @keyframes lavaDrift {
+    0% { transform: translateX(-7%) scaleX(1); }
+    50% { transform: translateX(7%) scaleX(1.08); }
+    100% { transform: translateX(-3%) scaleX(0.96); }
   }
 
-  @keyframes snakeMove2 {
-    0% { transform: translateX(0) rotate(0deg); }
-    25% { transform: translateX(-10px) rotate(-2deg); }
-    50% { transform: translateX(10px) rotate(2deg); }
-    75% { transform: translateX(-10px) rotate(-2deg); }
-    100% { transform: translateX(0) rotate(0deg); }
+  @keyframes lavaSway {
+    0% { transform: translateX(-3px) scaleY(0.96); }
+    50% { transform: translateX(9px) scaleY(1.08); }
+    100% { transform: translateX(-6px) scaleY(1.02); }
+  }
+
+  @keyframes lavaSwaySlow {
+    0% { transform: translateX(8px) scaleY(1.05); }
+    50% { transform: translateX(-10px) scaleY(0.95); }
+    100% { transform: translateX(5px) scaleY(1.1); }
   }
 
   @keyframes fadeIn {
