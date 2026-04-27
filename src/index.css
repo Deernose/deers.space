@@ -215,6 +215,7 @@
     position: relative;
     overflow: hidden;
     color: hsl(var(--foreground));
+    background: hsl(var(--background));
     min-height: 560px;
     display: flex;
     flex-direction: column;
@@ -224,14 +225,14 @@
 
   .curved-lines svg {
     position: absolute;
-    top: -10%;
-    left: -18%;
-    width: 136%;
-    height: 120%;
+    top: -20%;
+    left: -25%;
+    width: 150%;
+    height: 140%;
     z-index: 0;
     stroke-opacity: 0.7;
     pointer-events: none;
-    animation: lavaDrift 32s ease-in-out infinite alternate;
+    animation: lavaDrift 36s ease-in-out infinite alternate;
   }
 
   .lava-line {
@@ -422,9 +423,10 @@
 
 @layer utilities {
   @keyframes lavaDrift {
-    0% { transform: translateX(-7%) scaleX(1); }
-    50% { transform: translateX(7%) scaleX(1.08); }
-    100% { transform: translateX(-3%) scaleX(0.96); }
+    0% { transform: translateX(-2%) translateY(1%) scaleX(1); }
+    33% { transform: translateX(8%) translateY(-2%) scaleX(1.06); }
+    66% { transform: translateX(-6%) translateY(2%) scaleX(0.98); }
+    100% { transform: translateX(5%) translateY(-1%) scaleX(1.03); }
   }
 
   @keyframes lavaSway {
