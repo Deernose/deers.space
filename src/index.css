@@ -165,43 +165,6 @@
     transform: translateY(-2px);
   }
 
-  .scrolling-bar {
-    width: 100%;
-    background: hsl(var(--deer-surface));
-    overflow: hidden;
-    position: relative;
-  }
-
-  .scrolling-content {
-    display: flex;
-    width: max-content;
-    animation: scroll 75s linear infinite;
-    will-change: transform;
-  }
-
-  .game-item {
-    display: flex;
-    align-items: center;
-    padding: 10px 20px;
-    border-right: 1px solid hsl(var(--border));
-    white-space: nowrap;
-    min-width: 310px;
-  }
-
-  .game-item img {
-    width: 100px;
-    height: 56px;
-    margin-right: 10px;
-    border-radius: 5px;
-    object-fit: cover;
-  }
-
-  .game-item p {
-    margin: 5px 0;
-    font-size: 14px;
-    line-height: 1.15;
-  }
-
   .navbar {
     display: flex;
     justify-content: space-between;
@@ -455,11 +418,6 @@
 }
 
 @layer utilities {
-  @keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-
   @keyframes snakeMove {
     0% { transform: translateX(0) rotate(0deg); }
     25% { transform: translateX(8px) rotate(1deg); }
@@ -489,10 +447,6 @@
 
   .hidden-links {
     display: none;
-  }
-
-  .scrolling-content {
-    animation-duration: 25s;
   }
 
   .navbar {
