@@ -1,21 +1,4 @@
-import { useEffect, useState } from "react";
 import { Github, Instagram, Music, Play, Twitter, ExternalLink } from "lucide-react";
-
-type GameDeal = {
-  name: string;
-  price: string;
-  discount: string;
-  store: string;
-  image: string;
-};
-
-const fallbackGames: GameDeal[] = [
-  { name: "Cyberpunk 2077", price: "24.99 USD", discount: "50%", store: "Steam", image: "/images/discord-banner.png" },
-  { name: "Stardew Valley", price: "8.99 USD", discount: "40%", store: "GOG", image: "/images/about-us.jpg" },
-  { name: "Hades", price: "12.49 USD", discount: "50%", store: "Epic", image: "/images/discord-banner.png" },
-  { name: "Terraria", price: "4.99 USD", discount: "50%", store: "Steam", image: "/images/about-us.jpg" },
-  { name: "Disco Elysium", price: "9.99 USD", discount: "75%", store: "GOG", image: "/images/discord-banner.png" },
-];
 
 const socialLinks = [
   { href: "https://www.instagram.com/ledespair/", title: "Instagram de Ledespair", icon: Instagram },
@@ -67,34 +50,6 @@ const CurvedLines = () => (
 );
 
 const Index = () => {
-  const [games, setGames] = useState<GameDeal[]>(fallbackGames);
-
-  useEffect(() => {
-    let alive = true;
-
-    fetch("https://gg.deals/api/v1/deals?limit=10")
-      .then((response) => response.json())
-      .then((data) => {
-        if (!alive || !data?.results) return;
-        setGames(
-          data.results.map((game: any) => ({
-            name: game.title,
-            price: `${game.price_new} USD`,
-            discount: `${game.discount}%`,
-            store: game.store?.name ?? "Loja",
-            image: game.image,
-          })),
-        );
-      })
-      .catch(() => setGames(fallbackGames));
-
-    return () => {
-      alive = false;
-    };
-  }, []);
-
-  const scrollingGames = [...games, ...games];
-
   return (
     <div className="site-shell">
       <div className="mini-header">
@@ -114,23 +69,6 @@ const Index = () => {
               </li>
             ))}
           </ul>
-        </div>
-      </div>
-
-      <div className="scrolling-bar" aria-label="Ofertas de jogos">
-        <div className="scrolling-content" id="games-bar">
-          {scrollingGames.map((game, index) => (
-            <div className="game-item" key={`${game.name}-${index}`}>
-              <img src={game.image} alt={`Capa de ${game.name}`} loading="lazy" />
-              <div>
-                <p>{game.name}</p>
-                <p>{game.price}</p>
-                <p>
-                  {game.discount} • {game.store}
-                </p>
-              </div>
-            </div>
-          ))}
         </div>
       </div>
 
