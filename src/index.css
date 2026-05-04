@@ -137,9 +137,20 @@
   }
 
   .hidden-links a {
-    color: transparent;
-    padding: 5px;
+    color: hsl(var(--foreground));
+    padding: 6px 12px;
+    border-radius: 6px;
     white-space: nowrap;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  }
+
+  .hidden-links a:hover,
+  .hidden-links a:focus-visible {
+    background: hsl(var(--deer-brand));
+    color: hsl(var(--primary-foreground));
+    transform: translateY(-1px);
   }
 
   .social-icons ul {
