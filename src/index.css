@@ -232,17 +232,17 @@
     z-index: 0;
     stroke-opacity: 0.7;
     pointer-events: none;
-    animation: lavaDrift 36s ease-in-out infinite alternate;
+    animation: lavaDrift 75s ease-in-out infinite alternate;
   }
 
   .lava-line {
     transform-box: fill-box;
     transform-origin: center;
-    animation: lavaSway 14s ease-in-out infinite alternate;
+    animation: lavaSway 32s ease-in-out infinite alternate;
   }
 
   .lava-line-slow {
-    animation: lavaSwaySlow 22s ease-in-out infinite alternate;
+    animation: lavaSwaySlow 48s ease-in-out infinite alternate;
   }
 
   .hero h1,
