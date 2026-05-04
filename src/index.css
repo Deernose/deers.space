@@ -121,7 +121,7 @@
 
   .mini-header {
     width: 100%;
-    background: hsl(var(--deer-mini));
+    background: hsl(18 60% 12%);
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
