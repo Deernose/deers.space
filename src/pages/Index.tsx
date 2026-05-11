@@ -31,47 +31,47 @@ const CurvedLines = () => (
           <stop offset="100%" stopColor="hsl(var(--deer-amber))" stopOpacity="0.8" />
         </linearGradient>
       </defs>
-      <path className="lava-line lava-line-slow" d="M-18 -35 Q 24 10, 4 52 T 18 135" stroke="url(#grad1)" fill="none" strokeWidth="18">
-        <animate attributeName="d" dur="81s" repeatCount="indefinite" values="M-18 -35 Q 24 10, 4 52 T 18 135; M-12 -35 Q 42 28, -6 76 T 28 135; M-24 -35 Q 10 48, 14 88 T 4 135; M-18 -35 Q 24 10, 4 52 T 18 135" />
+      <path className="lava-line lava-line-slow" d="M-2 -35 Q 0 0 -4 35 T -2 105 T 0 170" stroke="url(#grad1)" fill="none" strokeWidth="18">
+        <animate attributeName="d" dur="81s" repeatCount="indefinite" values="M-2 -35 Q 0 0 -4 35 T -2 105 T 0 170; M-2 -35 Q -4 0 0 35 T -4 105 T 2 170; M-2 -35 Q 0 0 -4 35 T -2 105 T 0 170" />
       </path>
-      <path className="lava-line" d="M5 -35 Q 62 22, 24 78 T 45 135" stroke="url(#grad2)" fill="none" strokeWidth="54">
-        <animate attributeName="d" dur="57s" repeatCount="indefinite" values="M5 -35 Q 62 22, 24 78 T 45 135; M18 -35 Q 78 44, 10 86 T 58 135; M-4 -35 Q 34 6, 42 66 T 32 135; M5 -35 Q 62 22, 24 78 T 45 135" />
+      <path className="lava-line" d="M10 -35 Q 14 0 8 35 T 12 105 T 9 170" stroke="url(#grad2)" fill="none" strokeWidth="40">
+        <animate attributeName="d" dur="57s" repeatCount="indefinite" values="M10 -35 Q 14 0 8 35 T 12 105 T 9 170; M10 -35 Q 6 0 14 35 T 8 105 T 13 170; M10 -35 Q 14 0 8 35 T 12 105 T 9 170" />
       </path>
-      <path className="lava-line lava-line-slow" d="M24 -35 Q 8 34, 48 58 T 22 135" stroke="url(#grad3)" fill="none" strokeWidth="7">
-        <animate attributeName="d" dur="93s" repeatCount="indefinite" values="M24 -35 Q 8 34, 48 58 T 22 135; M30 -35 Q -4 44, 58 92 T 18 135; M14 -35 Q 34 14, 34 70 T 38 135; M24 -35 Q 8 34, 48 58 T 22 135" />
+      <path className="lava-line lava-line-slow" d="M22 -35 Q 18 0 24 35 T 20 105 T 23 170" stroke="url(#grad3)" fill="none" strokeWidth="6">
+        <animate attributeName="d" dur="93s" repeatCount="indefinite" values="M22 -35 Q 18 0 24 35 T 20 105 T 23 170; M22 -35 Q 26 0 18 35 T 24 105 T 19 170; M22 -35 Q 18 0 24 35 T 20 105 T 23 170" />
       </path>
-      <path className="lava-line" d="M43 -35 Q 18 28, 62 92 T 36 135" stroke="url(#grad1)" fill="none" strokeWidth="34">
-        <animate attributeName="d" dur="66s" repeatCount="indefinite" values="M43 -35 Q 18 28, 62 92 T 36 135; M35 -35 Q 74 18, 50 74 T 66 135; M54 -35 Q 22 52, 74 66 T 28 135; M43 -35 Q 18 28, 62 92 T 36 135" />
+      <path className="lava-line" d="M34 -35 Q 38 0 32 35 T 36 105 T 33 170" stroke="url(#grad1)" fill="none" strokeWidth="26">
+        <animate attributeName="d" dur="66s" repeatCount="indefinite" values="M34 -35 Q 38 0 32 35 T 36 105 T 33 170; M34 -35 Q 30 0 38 35 T 32 105 T 37 170; M34 -35 Q 38 0 32 35 T 36 105 T 33 170" />
       </path>
-      <path className="lava-line lava-line-slow" d="M58 -35 Q 96 6, 38 70 T 75 135" stroke="url(#grad2)" fill="none" strokeWidth="12">
-        <animate attributeName="d" dur="87s" repeatCount="indefinite" values="M58 -35 Q 96 6, 38 70 T 75 135; M50 -35 Q 112 34, 48 94 T 68 135; M70 -35 Q 76 12, 56 62 T 92 135; M58 -35 Q 96 6, 38 70 T 75 135" />
+      <path className="lava-line lava-line-slow" d="M46 -35 Q 42 0 48 35 T 44 105 T 47 170" stroke="url(#grad2)" fill="none" strokeWidth="10">
+        <animate attributeName="d" dur="87s" repeatCount="indefinite" values="M46 -35 Q 42 0 48 35 T 44 105 T 47 170; M46 -35 Q 50 0 42 35 T 48 105 T 43 170; M46 -35 Q 42 0 48 35 T 44 105 T 47 170" />
       </path>
-      <path className="lava-line" d="M72 -35 Q 34 42, 86 66 T 64 135" stroke="url(#grad3)" fill="none" strokeWidth="42">
-        <animate attributeName="d" dur="54s" repeatCount="indefinite" values="M72 -35 Q 34 42, 86 66 T 64 135; M64 -35 Q 104 18, 72 88 T 98 135; M84 -35 Q 42 62, 96 54 T 52 135; M72 -35 Q 34 42, 86 66 T 64 135" />
+      <path className="lava-line" d="M58 -35 Q 62 0 56 35 T 60 105 T 57 170" stroke="url(#grad3)" fill="none" strokeWidth="34">
+        <animate attributeName="d" dur="54s" repeatCount="indefinite" values="M58 -35 Q 62 0 56 35 T 60 105 T 57 170; M58 -35 Q 54 0 62 35 T 56 105 T 61 170; M58 -35 Q 62 0 56 35 T 60 105 T 57 170" />
       </path>
-      <path className="lava-line lava-line-slow" d="M86 -35 Q 128 26, 76 92 T 112 135" stroke="url(#grad4)" fill="none" strokeWidth="9">
-        <animate attributeName="d" dur="78s" repeatCount="indefinite" values="M86 -35 Q 128 26, 76 92 T 112 135; M94 -35 Q 116 4, 88 72 T 100 135; M78 -35 Q 142 54, 92 104 T 126 135; M86 -35 Q 128 26, 76 92 T 112 135" />
+      <path className="lava-line lava-line-slow" d="M70 -35 Q 66 0 72 35 T 68 105 T 71 170" stroke="url(#grad4)" fill="none" strokeWidth="8">
+        <animate attributeName="d" dur="78s" repeatCount="indefinite" values="M70 -35 Q 66 0 72 35 T 68 105 T 71 170; M70 -35 Q 74 0 66 35 T 72 105 T 67 170; M70 -35 Q 66 0 72 35 T 68 105 T 71 170" />
       </path>
-      <path className="lava-line" d="M108 -35 Q 74 34, 122 78 T 94 135" stroke="url(#grad2)" fill="none" strokeWidth="28">
-        <animate attributeName="d" dur="63s" repeatCount="indefinite" values="M108 -35 Q 74 34, 122 78 T 94 135; M98 -35 Q 142 18, 112 92 T 132 135; M120 -35 Q 86 56, 134 62 T 88 135; M108 -35 Q 74 34, 122 78 T 94 135" />
+      <path className="lava-line" d="M82 -35 Q 86 0 80 35 T 84 105 T 81 170" stroke="url(#grad2)" fill="none" strokeWidth="22">
+        <animate attributeName="d" dur="63s" repeatCount="indefinite" values="M82 -35 Q 86 0 80 35 T 84 105 T 81 170; M82 -35 Q 78 0 86 35 T 80 105 T 85 170; M82 -35 Q 86 0 80 35 T 84 105 T 81 170" />
       </path>
-      <path className="lava-line lava-line-slow" d="M124 -35 Q 150 44, 104 66 T 138 135" stroke="url(#grad3)" fill="none" strokeWidth="15">
-        <animate attributeName="d" dur="99s" repeatCount="indefinite" values="M124 -35 Q 150 44, 104 66 T 138 135; M132 -35 Q 102 22, 128 88 T 116 135; M116 -35 Q 164 64, 112 56 T 148 135; M124 -35 Q 150 44, 104 66 T 138 135" />
+      <path className="lava-line lava-line-slow" d="M94 -35 Q 90 0 96 35 T 92 105 T 95 170" stroke="url(#grad3)" fill="none" strokeWidth="12">
+        <animate attributeName="d" dur="99s" repeatCount="indefinite" values="M94 -35 Q 90 0 96 35 T 92 105 T 95 170; M94 -35 Q 98 0 90 35 T 96 105 T 91 170; M94 -35 Q 90 0 96 35 T 92 105 T 95 170" />
       </path>
-      <path className="lava-line" d="M145 -35 Q 104 18, 150 86 T 124 135" stroke="url(#grad4)" fill="none" strokeWidth="46">
-        <animate attributeName="d" dur="60s" repeatCount="indefinite" values="M145 -35 Q 104 18, 150 86 T 124 135; M134 -35 Q 168 42, 136 72 T 156 135; M156 -35 Q 116 58, 166 98 T 118 135; M145 -35 Q 104 18, 150 86 T 124 135" />
+      <path className="lava-line" d="M106 -35 Q 110 0 104 35 T 108 105 T 105 170" stroke="url(#grad4)" fill="none" strokeWidth="36">
+        <animate attributeName="d" dur="60s" repeatCount="indefinite" values="M106 -35 Q 110 0 104 35 T 108 105 T 105 170; M106 -35 Q 102 0 110 35 T 104 105 T 109 170; M106 -35 Q 110 0 104 35 T 108 105 T 105 170" />
       </path>
-      <path className="lava-line lava-line-slow" d="M12 -35 Q 92 58, 16 98 T 84 135" stroke="url(#grad1)" fill="none" strokeWidth="5">
-        <animate attributeName="d" dur="105s" repeatCount="indefinite" values="M12 -35 Q 92 58, 16 98 T 84 135; M28 -35 Q 118 36, 8 82 T 96 135; M-2 -35 Q 74 74, 32 106 T 68 135; M12 -35 Q 92 58, 16 98 T 84 135" />
+      <path className="lava-line lava-line-slow" d="M16 -35 Q 20 0 14 35 T 18 105 T 15 170" stroke="url(#grad1)" fill="none" strokeWidth="4">
+        <animate attributeName="d" dur="105s" repeatCount="indefinite" values="M16 -35 Q 20 0 14 35 T 18 105 T 15 170; M16 -35 Q 12 0 20 35 T 14 105 T 19 170; M16 -35 Q 20 0 14 35 T 18 105 T 15 170" />
       </path>
-      <path className="lava-line" d="M48 -35 Q 122 14, 68 108 T 130 135" stroke="url(#grad3)" fill="none" strokeWidth="3">
-        <animate attributeName="d" dur="51s" repeatCount="indefinite" values="M48 -35 Q 122 14, 68 108 T 130 135; M60 -35 Q 146 46, 52 88 T 142 135; M36 -35 Q 98 2, 84 116 T 116 135; M48 -35 Q 122 14, 68 108 T 130 135" />
+      <path className="lava-line" d="M52 -35 Q 56 0 50 35 T 54 105 T 51 170" stroke="url(#grad3)" fill="none" strokeWidth="3">
+        <animate attributeName="d" dur="51s" repeatCount="indefinite" values="M52 -35 Q 56 0 50 35 T 54 105 T 51 170; M52 -35 Q 48 0 56 35 T 50 105 T 55 170; M52 -35 Q 56 0 50 35 T 54 105 T 51 170" />
       </path>
-      <path className="lava-line lava-line-slow" d="M78 -35 Q 10 24, 98 78 T 44 135" stroke="url(#grad4)" fill="none" strokeWidth="16">
-        <animate attributeName="d" dur="72s" repeatCount="indefinite" values="M78 -35 Q 10 24, 98 78 T 44 135; M66 -35 Q 28 52, 114 64 T 34 135; M90 -35 Q -2 10, 82 96 T 56 135; M78 -35 Q 10 24, 98 78 T 44 135" />
+      <path className="lava-line lava-line-slow" d="M76 -35 Q 72 0 78 35 T 74 105 T 77 170" stroke="url(#grad4)" fill="none" strokeWidth="14">
+        <animate attributeName="d" dur="72s" repeatCount="indefinite" values="M76 -35 Q 72 0 78 35 T 74 105 T 77 170; M76 -35 Q 80 0 72 35 T 78 105 T 73 170; M76 -35 Q 72 0 78 35 T 74 105 T 77 170" />
       </path>
-      <path className="lava-line" d="M118 -35 Q 54 66, 142 104 T 62 135" stroke="url(#grad2)" fill="none" strokeWidth="7">
-        <animate attributeName="d" dur="69s" repeatCount="indefinite" values="M118 -35 Q 54 66, 142 104 T 62 135; M106 -35 Q 72 42, 158 84 T 48 135; M132 -35 Q 38 78, 126 112 T 80 135; M118 -35 Q 54 66, 142 104 T 62 135" />
+      <path className="lava-line" d="M100 -35 Q 104 0 98 35 T 102 105 T 99 170" stroke="url(#grad2)" fill="none" strokeWidth="6">
+        <animate attributeName="d" dur="69s" repeatCount="indefinite" values="M100 -35 Q 104 0 98 35 T 102 105 T 99 170; M100 -35 Q 96 0 104 35 T 98 105 T 103 170; M100 -35 Q 104 0 98 35 T 102 105 T 99 170" />
       </path>
     </svg>
   </div>
