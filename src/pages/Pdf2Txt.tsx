@@ -44,7 +44,7 @@ const Pdf2Txt = () => {
         for (let pn = 1; pn <= pdf.numPages; pn++) {
           const page = await pdf.getPage(pn);
           const tc = await page.getTextContent();
-          full += tc.items.map((it: { str?: string }) => it.str ?? "").join(" ") + "\n\n";
+          full += tc.items.map((it) => ("str" in it ? it.str : "")).join(" ") + "\n\n";
           const pct = (pn / pdf.numPages) * 100;
           setResults((prev) => {
             const c = [...prev];
