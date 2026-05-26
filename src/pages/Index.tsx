@@ -82,10 +82,10 @@ const Index = () => {
   return (
     <div className="site-shell">
       <div className="mini-header">
-        <div className="hidden-links">
-          <a href="https://deers.space/breeding/" title="Calculadora de Breeding">Calculadora de Breeding</a>
-          <a href="https://deers.space/pdf2txt/" title="Extrator de PDF">Extrator de PDF</a>
-          <a href="https://deers.space/story-insta/" title="Ajustador de Story">Ajustador de Story</a>
+        <div className="hidden-links" aria-label="Ferramentas secretas">
+          <Link to="/breeding" title="Calculadora de Breeding">Calculadora de Breeding</Link>
+          <Link to="/pdf2txt" title="Extrator de PDF">Extrator de PDF</Link>
+          <Link to="/story-insta" title="Ajustador de Story">Ajustador de Story</Link>
         </div>
 
         <div className="social-icons" aria-label="Redes sociais">
