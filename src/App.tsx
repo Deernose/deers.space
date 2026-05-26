@@ -5,6 +5,9 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import Breeding from "./pages/Breeding.tsx";
+import Pdf2Txt from "./pages/Pdf2Txt.tsx";
+import StoryInsta from "./pages/StoryInsta.tsx";
 
 const queryClient = new QueryClient();
 
@@ -16,6 +19,9 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/breeding" element={<Breeding />} />
+          <Route path="/pdf2txt" element={<Pdf2Txt />} />
+          <Route path="/story-insta" element={<StoryInsta />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

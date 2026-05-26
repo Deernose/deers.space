@@ -137,13 +137,14 @@
   }
 
   .hidden-links a {
-    color: hsl(var(--foreground));
+    color: transparent;
     padding: 6px 12px;
     border-radius: 6px;
     white-space: nowrap;
     font-size: 14px;
     font-weight: 600;
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
   }
 
   .hidden-links a:hover,
