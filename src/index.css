@@ -196,6 +196,15 @@
     white-space: nowrap;
   }
 
+  .navbar .hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: hsl(var(--foreground));
+    cursor: pointer;
+    padding: 4px;
+  }
+
   .navbar ul {
     display: flex;
     align-items: center;
