@@ -102,17 +102,7 @@ const Index = () => {
         </div>
       </div>
 
-      <nav className="navbar" id="navbar" aria-label="Navegação principal">
-        <a href="https://deers.space" className="logo" title="DEER'S SPACE - Comunidade de Gamers, deers space, deer space, deersspace">
-          DEER&apos;s SPACE
-        </a>
-        <ul>
-          <li><a href="https://deers.space" title="Página inicial de DEER'S SPACE">Início</a></li>
-          <li><a href="#sobre" title="Sobre a comunidade DEER'S SPACE">Sobre</a></li>
-          <li><a href="#comunidade" title="Como se juntar à comunidade DEER'S SPACE">Comunidade</a></li>
-          <li><a href="mailto:contato@deers.space" title="Entre em contato com DEER'S SPACE">Contato</a></li>
-        </ul>
-      </nav>
+      <Navbar />
 
       <main>
         <section className="hero">
