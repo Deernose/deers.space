@@ -106,20 +106,16 @@ const Index = () => {
 
       <main>
         <section className="hero">
-          <h1>Bem-vindo ao DEER&apos;s SPACE</h1>
-          <p>Uma comunidade para amizades e aprendizado coletivo no mundo geek.</p>
-          <a href="https://discord.com/invite/kWdJFzf4rj" className="button" title="Junte-se à comunidade de games DEER'S SPACE, deers space, deer space, deersspace">
-            Junte-se ao nosso Discord
-          </a>
+          <h1>DEER&apos;s SPACE</h1>
+          <p>a comunidade que você precisava sem saber.</p>
           <CurvedLines />
         </section>
 
         <section className="about" id="sobre">
           <div className="text">
-            <h2>Sobre Nós</h2>
-            <p>O <strong>DEER&apos;s SPACE</strong> é uma comunidade dedicada a conectar pessoas apaixonadas por tecnologia, jogos, cultura geek e muito mais. Aqui, você pode aprender, compartilhar conhecimento e fazer novas amizades em um ambiente acolhedor e inclusivo.</p>
-            <p>Nossa comunidade promove discussões sobre os mais diversos temas geeks, desde os últimos lançamentos de jogos e filmes até debates profundos sobre tecnologias emergentes. Organizamos eventos online, torneios, maratonas de séries e muito mais.</p>
-            <p>Estamos sempre abertos a novas ideias e projetos. Se você tem uma paixão ou quer aprender algo novo, o DEER&apos;s SPACE é o lugar ideal para você. Junte-se a nós e faça parte desta jornada incrível no universo geek!</p>
+            <h2>Sobre</h2>
+            <p>Um espaço pra gamers e geeks. Sem firula.</p>
+            <p>Jogue, converse, faça amigos.</p>
           </div>
           <div className="image">
             <img src="/images/about-us.jpg" alt="Comunidade de jogos DEER'S SPACE" loading="lazy" />
@@ -129,8 +125,8 @@ const Index = () => {
         <section className="community" id="comunidade">
           <div className="content">
             <div className="text">
-              <h2>Nosso Discord</h2>
-              <p>Entre em nosso servidor do Discord para interagir com outros membros, participar de eventos e ficar por dentro das novidades.</p>
+              <h2>Discord</h2>
+              <p>Entra. É de graça.</p>
             </div>
             <div className="discord-invite">
               <a href="https://discord.com/invite/kWdJFzf4rj" target="_blank" rel="noopener noreferrer">
@@ -144,16 +140,16 @@ const Index = () => {
 
       <footer className="footer">
         <p>
-          &copy; 2025 DEER&apos;s SPACE. Todos os direitos reservados.
+          &copy; {new Date().getFullYear()} DEER&apos;s SPACE.
           <br />
-          Encontre sua comunidade de gamers em <a href="https://deers.space" title="Comunidade de Gamers Deers Space">deers.space</a>!
+          <a href="https://deers.space" title="Comunidade de Gamers Deers Space">deers.space</a>
         </p>
         <nav className="footer-nav" aria-label="Navegação do rodapé">
           <ul>
             <li><a href="#sobre" title="Sobre a comunidade DEER'S SPACE">Sobre</a></li>
             <li><a href="#comunidade" title="Como se juntar à comunidade DEER'S SPACE">Comunidade</a></li>
             <li><a href="mailto:contato@deers.space" title="Entre em contato com DEER'S SPACE">Contato</a></li>
-            <li><a href="https://twitter.com/deersspace" target="_blank" rel="noopener noreferrer" title="Siga Deers Space no Twitter">Twitter</a></li>
+            <li><a href="https://x.com/deernosey" target="_blank" rel="noopener noreferrer" title="Siga Deernosey no X (Twitter)">Twitter</a></li>
           </ul>
         </nav>
       </footer>
