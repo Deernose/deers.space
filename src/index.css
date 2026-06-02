@@ -121,12 +121,12 @@
 
   .mini-header {
     width: 100%;
-    background: hsl(18 60% 12%);
-    padding: 10px 20px;
+    background: #000001;
+    padding: 4px 16px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 20px;
+    gap: 16px;
   }
 
   .hidden-links {
@@ -181,8 +181,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: hsl(var(--deer-surface-elevated));
-    padding: 15px 20px;
+    background: #000001;
+    padding: 6px 16px;
     position: sticky;
     top: 0;
     z-index: 1000;
