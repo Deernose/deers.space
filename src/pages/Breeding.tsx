@@ -124,21 +124,21 @@ const Breeding = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <header className="border-b border-border px-4 py-3 flex items-center justify-between">
-        <Link to="/" className="font-bold text-lg">← DEER&apos;s SPACE</Link>
-        <span className="text-sm text-muted-foreground">Calculadora de Breeding</span>
+      <header className="border-b border-border px-3 py-3 flex items-center justify-between gap-2">
+        <Link to="/" className="font-bold text-base sm:text-lg shrink-0">← DEER&apos;s SPACE</Link>
+        <span className="text-xs sm:text-sm text-muted-foreground text-right">Calculadora de Breeding</span>
       </header>
-      <main className="w-full px-4 py-8">
-        <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold">Calculadora de IV e Breeding de Eevee</h1>
-          <p className="text-muted-foreground mt-2">Otimização para 6 IVs Perfeitos com custos acumulados.</p>
+      <main className="w-full px-3 sm:px-4 py-6 sm:py-8">
+        <div className="text-center mb-6 sm:mb-8">
+          <h1 className="text-2xl sm:text-3xl font-bold">Calculadora de IV e Breeding de Eevee</h1>
+          <p className="text-sm sm:text-base text-muted-foreground mt-2">Otimização para 6 IVs Perfeitos com custos acumulados.</p>
         </div>
-        <div className="container mx-auto flex flex-wrap lg:flex-nowrap gap-8 justify-center">
-          <div className="bg-card border border-border p-6 rounded-2xl shadow-lg w-full max-w-sm">
-            <h2 className="text-xl font-bold mb-4">Parâmetros de Custo</h2>
+        <div className="container mx-auto flex flex-col lg:flex-row gap-6 lg:gap-8 justify-center">
+          <div className="bg-card border border-border p-4 sm:p-6 rounded-2xl shadow-lg w-full lg:max-w-sm shrink-0">
+            <h2 className="text-lg sm:text-xl font-bold mb-4">Parâmetros de Custo</h2>
 
             <fieldset className="mb-4 border border-border p-3 rounded-lg">
-              <legend className="px-2 text-muted-foreground">Dittos (por IV)</legend>
+              <legend className="px-2 text-muted-foreground text-sm">Dittos (por IV)</legend>
               {labels.map((l, i) => (
                 <label key={l} className="block my-2 text-sm">
                   Ditto {l}:
@@ -149,7 +149,7 @@ const Breeding = () => {
             </fieldset>
 
             <fieldset className="mb-4 border border-border p-3 rounded-lg">
-              <legend className="px-2 text-muted-foreground">Eevees (por IV)</legend>
+              <legend className="px-2 text-muted-foreground text-sm">Eevees (por IV)</legend>
               {labels.map((l, i) => (
                 <label key={l} className="block my-2 text-sm">
                   Eevee {l}:
@@ -160,14 +160,14 @@ const Breeding = () => {
             </fieldset>
 
             <fieldset className="mb-4 border border-border p-3 rounded-lg">
-              <legend className="px-2 text-muted-foreground">Coleiras</legend>
+              <legend className="px-2 text-muted-foreground text-sm">Coleiras</legend>
               <label className="block my-2 text-sm">Coleira (cada):
                 <input type="number" value={collar} onChange={(e) => setCollar(+e.target.value)} className="w-full bg-background p-2 rounded mt-1 border border-border" />
               </label>
             </fieldset>
 
             <fieldset className="border border-border p-3 rounded-lg">
-              <legend className="px-2 text-muted-foreground">Gênero</legend>
+              <legend className="px-2 text-muted-foreground text-sm">Gênero</legend>
               <label className="block my-2 text-sm">Custo Macho:
                 <input type="number" value={male} onChange={(e) => setMale(+e.target.value)} className="w-full bg-background p-2 rounded mt-1 border border-border" />
               </label>
@@ -187,8 +187,9 @@ const Breeding = () => {
             )}
           </div>
 
-          <div className="flex-1 min-w-0">
-            <div ref={containerRef} className="bg-card border border-border p-6 rounded-2xl shadow-lg overflow-auto" dangerouslySetInnerHTML={{ __html: svg || "Gerando..." }} />
+          <div className="flex-1 min-w-0 w-full">
+            <div className="text-xs text-muted-foreground mb-2 lg:hidden text-center">Arraste horizontalmente para ver todo o diagrama →</div>
+            <div ref={containerRef} className="breeding-diagram bg-card border border-border p-3 sm:p-6 rounded-2xl shadow-lg overflow-auto max-w-full" dangerouslySetInnerHTML={{ __html: svg || "Gerando..." }} />
           </div>
         </div>
       </main>
@@ -198,6 +199,7 @@ const Breeding = () => {
         .iv4 { background:#6A7BFF; } .iv5 { background:#78C850; } .iv6 { background:#F85888; }
         .pokemon-card { text-align:center; font-size:13px; min-width:140px; color:#d1d5db; padding:6px; }
         .pokemon-card small { color:#9ca3af; }
+        .breeding-diagram svg { max-width: none; height: auto; }
       `}</style>
     </div>
   );
