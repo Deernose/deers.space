@@ -1,5 +1,6 @@
 import { Github, Instagram, Music, Play, Twitter, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
+import Navbar from "@/components/Navbar";
 
 const socialLinks = [
   { href: "https://www.instagram.com/ledespair/", title: "Instagram de Ledespair", icon: Instagram },
