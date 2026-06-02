@@ -276,16 +276,18 @@
   }
 
   .hero h1 {
-    font-size: 52px;
-    line-height: 1.1;
-    margin: 0 0 20px;
+    font-size: 38px;
+    line-height: 1.15;
+    margin: 0 0 14px;
     font-weight: 800;
+    letter-spacing: -0.5px;
   }
 
   .hero p {
-    font-size: 22px;
-    margin: 0 0 30px;
-    max-width: 760px;
+    font-size: 18px;
+    margin: 0;
+    max-width: 620px;
+    opacity: 0.85;
   }
 
   .button {
