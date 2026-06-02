@@ -97,6 +97,7 @@
 
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 
   body {
@@ -461,24 +462,36 @@
 
 @media (max-width: 768px) {
   .mini-header {
-    justify-content: flex-end;
+    justify-content: center;
+    padding: 4px 8px;
   }
 
   .hidden-links {
     display: none;
   }
 
+  .social-icons ul {
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
   .navbar {
-    align-items: flex-start;
-    gap: 14px;
+    align-items: center;
+    gap: 8px;
     flex-direction: column;
+    padding: 8px 12px;
+  }
+
+  .navbar .logo {
+    font-size: 22px;
   }
 
   .navbar ul {
     width: 100%;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 8px;
   }
 
   .navbar ul li {
@@ -486,24 +499,30 @@
   }
 
   .navbar ul li a {
-    font-size: 15px;
+    font-size: 14px;
   }
 
   .hero {
-    padding: 110px 20px 180px;
-    min-height: 500px;
+    padding: 70px 16px 120px;
+    min-height: 420px;
   }
 
   .hero h1 {
-    font-size: 36px;
+    font-size: 30px;
   }
 
   .hero p {
-    font-size: 18px;
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
+
+  .button {
+    padding: 12px 22px;
+    font-size: 16px;
   }
 
   .about {
-    padding: 0;
+    padding: 32px 16px;
     flex-direction: column;
     align-items: center;
   }
@@ -511,13 +530,28 @@
   .about .text,
   .about .image {
     margin: 0;
+    padding: 8px 0;
+    min-width: 0;
+    width: 100%;
+  }
+
+  .about .text h2,
+  .community .text h2 {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .about .text p,
+  .community .text p {
+    font-size: 16px;
   }
 
   .about .image {
-    margin-top: 20px;
+    margin-top: 16px;
   }
 
   .community {
+    padding: 32px 16px;
     flex-direction: column;
     text-align: center;
   }
@@ -529,7 +563,9 @@
   .community .text,
   .community .discord-invite {
     margin: 0;
-    padding: 20px;
+    padding: 12px 0;
+    min-width: 0;
+    width: 100%;
   }
 
   .community .text {
@@ -537,7 +573,16 @@
   }
 
   .community .discord-invite {
-    margin-top: 20px;
+    margin-top: 16px;
+  }
+
+  .footer {
+    padding: 16px 12px;
+    font-size: 14px;
+  }
+
+  .footer-nav ul {
+    gap: 10px;
   }
 }
 
