@@ -4,13 +4,13 @@
 
 @layer base {
   :root {
-    --background: 0 0% 7%;
+    --background: 240 100% 0%;
     --foreground: 0 0% 100%;
 
-    --card: 0 0% 12%;
+    --card: 240 100% 0%;
     --card-foreground: 0 0% 100%;
 
-    --popover: 0 0% 12%;
+    --popover: 240 100% 0%;
     --popover-foreground: 0 0% 100%;
 
     --primary: 14 100% 57%;
@@ -19,7 +19,7 @@
     --secondary: 205 24% 29%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 0 0% 15%;
+    --muted: 240 100% 0%;
     --muted-foreground: 0 0% 73%;
 
     --accent: 36 100% 50%;
@@ -34,17 +34,17 @@
 
     --radius: 0.625rem;
 
-    --sidebar-background: 0 0% 9%;
+    --sidebar-background: 240 100% 0%;
     --sidebar-foreground: 0 0% 95%;
     --sidebar-primary: 14 100% 57%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 0 0% 15%;
+    --sidebar-accent: 240 100% 0%;
     --sidebar-accent-foreground: 0 0% 95%;
     --sidebar-border: 0 0% 20%;
     --sidebar-ring: 36 100% 50%;
 
-    --deer-surface: 0 0% 12%;
-    --deer-surface-elevated: 0 0% 14%;
+    --deer-surface: 240 100% 0%;
+    --deer-surface-elevated: 240 100% 0%;
     --deer-mini: 205 24% 29%;
     --deer-brand: 14 100% 57%;
     --deer-about-title: 36 100% 50%;
@@ -62,17 +62,17 @@
   }
 
   .dark {
-    --background: 0 0% 7%;
+    --background: 240 100% 0%;
     --foreground: 0 0% 100%;
-    --card: 0 0% 12%;
+    --card: 240 100% 0%;
     --card-foreground: 0 0% 100%;
-    --popover: 0 0% 12%;
+    --popover: 240 100% 0%;
     --popover-foreground: 0 0% 100%;
     --primary: 14 100% 57%;
     --primary-foreground: 0 0% 100%;
     --secondary: 205 24% 29%;
     --secondary-foreground: 0 0% 100%;
-    --muted: 0 0% 15%;
+    --muted: 240 100% 0%;
     --muted-foreground: 0 0% 73%;
     --accent: 36 100% 50%;
     --accent-foreground: 0 0% 7%;
@@ -81,11 +81,11 @@
     --border: 0 0% 20%;
     --input: 0 0% 20%;
     --ring: 36 100% 50%;
-    --sidebar-background: 0 0% 9%;
+    --sidebar-background: 240 100% 0%;
     --sidebar-foreground: 0 0% 95%;
     --sidebar-primary: 14 100% 57%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 0 0% 15%;
+    --sidebar-accent: 240 100% 0%;
     --sidebar-accent-foreground: 0 0% 95%;
     --sidebar-border: 0 0% 20%;
     --sidebar-ring: 36 100% 50%;
