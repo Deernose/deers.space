@@ -1,21 +1,27 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 
 const navLinks = [
-  { href: "https://deers.space", label: "Início" },
-  { href: "#sobre", label: "Sobre" },
-  { href: "#comunidade", label: "Comunidade" },
-  { href: "mailto:contato@deers.space", label: "Contato" },
+  { href: "#inicio", label: "início" },
+  { href: "#comunidade", label: "comunidade" },
+  { href: "#hubs", label: "hubs" },
+  { href: "#eventos", label: "eventos" },
+  { href: "#sobre", label: "sobre" },
 ];
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [active, setActive] = useState("#inicio");
 
   return (
     <nav className="navbar" aria-label="Navegação principal">
-      <a href="https://deers.space" className="logo" title="DEER'S SPACE - Comunidade de Gamers, deers space, deer space, deersspace">
-        DEER&apos;s SPACE
+      <a href="#inicio" className="logo" title="DEER'S SPACE">
+        <span className="logo-text">
+          DEER&apos;S
+          <br />
+          SPACE
+        </span>
+        <span className="logo-star" aria-hidden="true">✦</span>
       </a>
 
       <button
@@ -30,12 +36,28 @@ const Navbar = () => {
       <ul className={open ? "nav-open" : ""}>
         {navLinks.map((link) => (
           <li key={link.href}>
-            <a href={link.href} title={`${link.label} - DEER'S SPACE`} onClick={() => setOpen(false)}>
+            <a
+              href={link.href}
+              className={active === link.href ? "is-active" : ""}
+              onClick={() => {
+                setActive(link.href);
+                setOpen(false);
+              }}
+            >
               {link.label}
             </a>
           </li>
         ))}
       </ul>
+
+      <a
+        href="https://discord.com/invite/kWdJFzf4rj"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="enter-btn"
+      >
+        entrar <ArrowUpRight size={16} strokeWidth={2.2} />
+      </a>
     </nav>
   );
 };
