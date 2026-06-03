@@ -548,19 +548,23 @@
   }
 
   .navbar {
-    align-items: center;
-    flex-direction: row;
-    padding: 8px 12px;
+    grid-template-columns: 1fr auto;
+    padding: 10px 14px;
+  }
+
+  .navbar .enter-btn {
+    display: none;
   }
 
   .navbar .hamburger {
     display: flex;
     align-items: center;
     justify-content: center;
+    justify-self: end;
   }
 
   .navbar .logo {
-    font-size: 22px;
+    font-size: 13px;
   }
 
   .navbar ul {
@@ -572,44 +576,42 @@
     background: #000001;
     flex-direction: column;
     align-items: center;
-    padding: 12px 0;
-    gap: 4px;
+    padding: 14px 0;
+    gap: 8px;
     border-top: 1px solid hsl(var(--border));
     z-index: 999;
+    grid-column: 1 / -1;
   }
 
   .navbar ul.nav-open {
     display: flex;
   }
 
-  .navbar ul li {
-    margin-left: 0;
-  }
-
   .navbar ul li a {
     font-size: 16px;
-    padding: 10px 20px;
+    padding: 8px 20px;
     display: block;
   }
 
   .hero {
-    padding: 70px 16px 120px;
+    padding: 80px 20px 100px;
     min-height: 420px;
   }
 
   .hero h1 {
-    font-size: 30px;
+    font-size: 54px;
   }
 
   .hero p {
     font-size: 16px;
-    margin-bottom: 24px;
+    max-width: 320px;
   }
 
   .button {
     padding: 12px 22px;
     font-size: 16px;
   }
+
 
   .about {
     padding: 32px 16px;
