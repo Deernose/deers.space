@@ -158,7 +158,7 @@ const Index = () => {
       <main>
         <section className="hero">
           <h1>DEER&apos;s SPACE</h1>
-          <p>a comunidade que você precisava sem saber.</p>
+          <p>comunidade para quem vive online. sempre.</p>
           <CurvedLines />
         </section>
 
