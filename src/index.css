@@ -294,50 +294,61 @@
     justify-content: center;
   }
 
+  .curved-lines {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
   .curved-lines svg {
     position: absolute;
     top: -10%;
-    left: 0;
-    width: 100%;
+    left: -10%;
+    width: 120%;
     height: 130%;
-    z-index: 0;
-    stroke-opacity: 0.7;
-    pointer-events: none;
-    animation: lavaDrift 75s ease-in-out infinite alternate;
+    animation: lavaDrift 60s ease-in-out infinite alternate;
   }
 
   .lava-line {
     transform-box: fill-box;
     transform-origin: center;
-    animation: lavaSway 32s ease-in-out infinite alternate;
+    animation: lavaSway 40s ease-in-out infinite alternate;
+    mix-blend-mode: screen;
   }
 
   .lava-line-slow {
-    animation: lavaSwaySlow 48s ease-in-out infinite alternate;
+    animation: lavaSwaySlow 70s ease-in-out infinite alternate;
   }
 
   .hero h1,
   .hero p,
   .hero .button {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     animation: fadeIn 1.5s ease-in-out;
   }
 
   .hero h1 {
-    font-size: 38px;
-    line-height: 1.15;
-    margin: 0 0 14px;
-    font-weight: 800;
-    letter-spacing: -0.5px;
+    font-size: 88px;
+    line-height: 0.95;
+    margin: 0 0 24px;
+    font-weight: 900;
+    letter-spacing: -1.5px;
+    color: hsl(var(--deer-brand));
+    text-transform: uppercase;
   }
 
   .hero p {
     font-size: 18px;
     margin: 0;
-    max-width: 620px;
+    max-width: 460px;
+    color: hsl(var(--deer-brand));
     opacity: 0.85;
+    line-height: 1.5;
   }
+
 
   .button {
     background: hsl(var(--deer-brand));
