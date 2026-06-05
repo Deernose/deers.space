@@ -16,59 +16,67 @@ const CurvedLines = () => (
   <div className="curved-lines" aria-hidden="true">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 60" preserveAspectRatio="xMidYMid slice">
       <defs>
-        {/* Vertical-ish flowing red bands -- alternating dark/bright stripes */}
+        {/* Marble ribbons — sharp narrow bright-red veins separated by deep black */}
         <linearGradient id="marbleBands" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%"   stopColor="#c40914" />
-          <stop offset="4%"   stopColor="#ff2230" />
-          <stop offset="8%"   stopColor="#5a0207" />
-          <stop offset="13%"  stopColor="#0a0000" />
-          <stop offset="18%"  stopColor="#3a0306" />
-          <stop offset="23%"  stopColor="#a80812" />
-          <stop offset="27%"  stopColor="#ff2a36" />
-          <stop offset="32%"  stopColor="#7a040b" />
-          <stop offset="38%"  stopColor="#0a0000" />
-          <stop offset="44%"  stopColor="#1a0102" />
-          <stop offset="50%"  stopColor="#c40914" />
-          <stop offset="55%"  stopColor="#ff3340" />
-          <stop offset="60%"  stopColor="#6a040a" />
-          <stop offset="66%"  stopColor="#0a0000" />
-          <stop offset="72%"  stopColor="#2a0204" />
-          <stop offset="78%"  stopColor="#9a0810" />
-          <stop offset="83%"  stopColor="#ff2a36" />
-          <stop offset="88%"  stopColor="#5a0408" />
-          <stop offset="94%"  stopColor="#0a0000" />
-          <stop offset="100%" stopColor="#c40914" />
+          <stop offset="0.00" stopColor="#000000" />
+          <stop offset="0.03" stopColor="#000000" />
+          <stop offset="0.045" stopColor="#ff1f2b" />
+          <stop offset="0.055" stopColor="#ff2a36" />
+          <stop offset="0.07" stopColor="#000000" />
+          <stop offset="0.12" stopColor="#000000" />
+          <stop offset="0.14" stopColor="#c40914" />
+          <stop offset="0.16" stopColor="#ff2230" />
+          <stop offset="0.18" stopColor="#5a0207" />
+          <stop offset="0.22" stopColor="#000000" />
+          <stop offset="0.26" stopColor="#000000" />
+          <stop offset="0.285" stopColor="#ff1f2b" />
+          <stop offset="0.30" stopColor="#ff3340" />
+          <stop offset="0.32" stopColor="#7a040b" />
+          <stop offset="0.36" stopColor="#000000" />
+          <stop offset="0.41" stopColor="#000000" />
+          <stop offset="0.43" stopColor="#c40914" />
+          <stop offset="0.45" stopColor="#ff2a36" />
+          <stop offset="0.47" stopColor="#3a0306" />
+          <stop offset="0.52" stopColor="#000000" />
+          <stop offset="0.57" stopColor="#000000" />
+          <stop offset="0.59" stopColor="#ff1f2b" />
+          <stop offset="0.61" stopColor="#ff2a36" />
+          <stop offset="0.63" stopColor="#5a0207" />
+          <stop offset="0.68" stopColor="#000000" />
+          <stop offset="0.73" stopColor="#000000" />
+          <stop offset="0.75" stopColor="#c40914" />
+          <stop offset="0.77" stopColor="#ff3340" />
+          <stop offset="0.79" stopColor="#7a040b" />
+          <stop offset="0.83" stopColor="#000000" />
+          <stop offset="0.88" stopColor="#000000" />
+          <stop offset="0.905" stopColor="#ff2230" />
+          <stop offset="0.92" stopColor="#ff2a36" />
+          <stop offset="0.94" stopColor="#3a0306" />
+          <stop offset="0.98" stopColor="#000000" />
+          <stop offset="1.00" stopColor="#000000" />
         </linearGradient>
 
-        {/* Marble deformation: low-freq turbulence -> heavy displacement */}
-        <filter id="marbleWarp" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox">
-          <feTurbulence type="fractalNoise" baseFrequency="0.012 0.05" numOctaves="2" seed="7" result="noise">
-            <animate attributeName="baseFrequency" dur="40s" repeatCount="indefinite"
-              values="0.012 0.05; 0.018 0.045; 0.014 0.055; 0.012 0.05" />
+        {/* Strong low-freq turbulence with heavy displacement = marbled liquid */}
+        <filter id="marbleWarp" x="-25%" y="-25%" width="150%" height="150%" filterUnits="objectBoundingBox">
+          <feTurbulence type="fractalNoise" baseFrequency="0.008 0.022" numOctaves="3" seed="11" result="noise">
+            <animate attributeName="baseFrequency" dur="55s" repeatCount="indefinite"
+              values="0.008 0.022; 0.011 0.018; 0.009 0.024; 0.008 0.022" />
+            <animate attributeName="seed" dur="120s" repeatCount="indefinite" values="11; 14; 9; 11" />
           </feTurbulence>
-          <feDisplacementMap in="SourceGraphic" in2="noise" scale="55" xChannelSelector="R" yChannelSelector="G" />
-          <feGaussianBlur stdDeviation="0.35" />
-        </filter>
-
-        <filter id="marbleGlow">
-          <feGaussianBlur stdDeviation="0.6" />
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="95" xChannelSelector="R" yChannelSelector="G" />
         </filter>
       </defs>
 
       <rect width="100" height="60" fill="#000001" />
 
-      {/* Two displaced layers, offset & differently scaled for organic depth */}
       <g filter="url(#marbleWarp)">
-        <rect x="-10" y="-10" width="120" height="80" fill="url(#marbleBands)" />
-      </g>
-      <g filter="url(#marbleWarp)" opacity="0.55" style={{ mixBlendMode: "screen" }}>
-        <rect x="-15" y="-10" width="130" height="80" fill="url(#marbleBands)" transform="translate(8 0) scale(1.05 1)" />
+        <rect x="-20" y="-20" width="140" height="100" fill="url(#marbleBands)" />
       </g>
 
-      {/* Central darkening for text legibility */}
-      <radialGradient id="vignette" cx="50%" cy="55%" r="60%">
-        <stop offset="0%" stopColor="#000" stopOpacity="0.7" />
-        <stop offset="55%" stopColor="#000" stopOpacity="0.25" />
+      {/* Subtle vignette to anchor text */}
+      <radialGradient id="vignette" cx="50%" cy="55%" r="65%">
+        <stop offset="0%" stopColor="#000" stopOpacity="0.55" />
+        <stop offset="55%" stopColor="#000" stopOpacity="0.15" />
         <stop offset="100%" stopColor="#000" stopOpacity="0" />
       </radialGradient>
       <rect width="100" height="60" fill="url(#vignette)" />
