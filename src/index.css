@@ -317,9 +317,11 @@
   }
 
   .hero h1,
-  .hero p,
-  .hero .scroll-pill {
+  .hero p {
     position: relative;
+    z-index: 2;
+  }
+  .hero .scroll-pill {
     z-index: 2;
   }
 
