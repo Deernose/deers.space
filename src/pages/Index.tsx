@@ -57,13 +57,14 @@ const CurvedLines = () => (
         </linearGradient>
 
         {/* Strong low-freq turbulence with heavy displacement = marbled liquid */}
-        <filter id="marbleWarp" x="-25%" y="-25%" width="150%" height="150%" filterUnits="objectBoundingBox">
-          <feTurbulence type="fractalNoise" baseFrequency="0.008 0.022" numOctaves="3" seed="11" result="noise">
-            <animate attributeName="baseFrequency" dur="55s" repeatCount="indefinite"
-              values="0.008 0.022; 0.011 0.018; 0.009 0.024; 0.008 0.022" />
-            <animate attributeName="seed" dur="120s" repeatCount="indefinite" values="11; 14; 9; 11" />
+        <filter id="marbleWarp" x="-30%" y="-30%" width="160%" height="160%" filterUnits="objectBoundingBox">
+          <feTurbulence type="fractalNoise" baseFrequency="0.013 0.014" numOctaves="3" seed="11" result="noise">
+            <animate attributeName="baseFrequency" dur="60s" repeatCount="indefinite"
+              values="0.013 0.014; 0.016 0.012; 0.012 0.016; 0.013 0.014" />
+            <animate attributeName="seed" dur="140s" repeatCount="indefinite" values="11; 17; 5; 11" />
           </feTurbulence>
-          <feDisplacementMap in="SourceGraphic" in2="noise" scale="95" xChannelSelector="R" yChannelSelector="G" />
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="120" xChannelSelector="R" yChannelSelector="G" />
+          <feGaussianBlur stdDeviation="0.25" />
         </filter>
       </defs>
 
