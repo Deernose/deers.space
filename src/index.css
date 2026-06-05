@@ -240,7 +240,7 @@
 
   .navbar ul li a {
     position: relative;
-    font-size: 14px;
+    font-size: 16px;
     color: hsl(var(--foreground));
     text-transform: lowercase;
     transition: color 0.3s ease;
