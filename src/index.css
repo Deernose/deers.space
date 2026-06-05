@@ -282,27 +282,17 @@
   .hero {
     width: 100%;
     text-align: center;
-    padding: 110px 20px 140px;
+    padding: 90px 20px 80px;
     position: relative;
     overflow: hidden;
     color: hsl(var(--foreground));
     background: #000001;
-    min-height: 560px;
+    min-height: 640px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
-
-  .hero::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse 45% 55% at center, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.55) 40%, rgba(0,0,0,0) 75%);
-    z-index: 1;
-    pointer-events: none;
-  }
-
 
   .curved-lines {
     position: absolute;
@@ -314,40 +304,28 @@
 
   .curved-lines svg {
     position: absolute;
-    top: -10%;
-    left: -10%;
-    width: 120%;
-    height: 130%;
-    animation: lavaDrift 60s ease-in-out infinite alternate;
-  }
-
-  .lava-line {
-    transform-box: fill-box;
-    transform-origin: center;
-    animation: lavaSway 40s ease-in-out infinite alternate;
-    mix-blend-mode: screen;
-  }
-
-  .lava-line-slow {
-    animation: lavaSwaySlow 70s ease-in-out infinite alternate;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
   }
 
   .hero h1,
   .hero p,
-  .hero .button {
+  .hero .scroll-pill {
     position: relative;
     z-index: 2;
-    animation: fadeIn 1.5s ease-in-out;
   }
 
   .hero h1 {
-    font-size: 88px;
-    line-height: 0.95;
-    margin: 0 0 24px;
+    font-size: 92px;
+    line-height: 0.92;
+    margin: 0 0 22px;
     font-weight: 900;
-    letter-spacing: -1.5px;
+    letter-spacing: -2px;
     color: hsl(var(--deer-brand));
     text-transform: uppercase;
+    text-shadow: 0 6px 30px rgba(0,0,0,0.55);
   }
 
   .hero p {
@@ -355,8 +333,23 @@
     margin: 0;
     max-width: 460px;
     color: hsl(var(--deer-brand));
-    opacity: 0.85;
+    opacity: 0.95;
     line-height: 1.5;
+    text-shadow: 0 2px 14px rgba(0,0,0,0.6);
+  }
+
+  .scroll-pill {
+    margin-top: 56px;
+    padding: 10px 22px;
+    border-radius: 999px 999px 0 0;
+    background: #000001;
+    color: hsl(var(--deer-brand));
+    font-size: 13px;
+    text-transform: lowercase;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
 
