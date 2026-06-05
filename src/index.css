@@ -123,7 +123,7 @@
   .mini-header {
     width: 100%;
     background: #000001;
-    padding: 4px 16px;
+    padding: 2px 16px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
