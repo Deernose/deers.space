@@ -16,115 +16,62 @@ const CurvedLines = () => (
   <div className="curved-lines" aria-hidden="true">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 60" preserveAspectRatio="xMidYMid slice">
       <defs>
-        <linearGradient id="lavaDark" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="#1a0000" />
-          <stop offset="50%" stopColor="#3a0204" />
-          <stop offset="100%" stopColor="#0a0000" />
+        {/* Vertical-ish flowing red bands -- alternating dark/bright stripes */}
+        <linearGradient id="marbleBands" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%"   stopColor="#c40914" />
+          <stop offset="4%"   stopColor="#ff2230" />
+          <stop offset="8%"   stopColor="#5a0207" />
+          <stop offset="13%"  stopColor="#0a0000" />
+          <stop offset="18%"  stopColor="#3a0306" />
+          <stop offset="23%"  stopColor="#a80812" />
+          <stop offset="27%"  stopColor="#ff2a36" />
+          <stop offset="32%"  stopColor="#7a040b" />
+          <stop offset="38%"  stopColor="#0a0000" />
+          <stop offset="44%"  stopColor="#1a0102" />
+          <stop offset="50%"  stopColor="#c40914" />
+          <stop offset="55%"  stopColor="#ff3340" />
+          <stop offset="60%"  stopColor="#6a040a" />
+          <stop offset="66%"  stopColor="#0a0000" />
+          <stop offset="72%"  stopColor="#2a0204" />
+          <stop offset="78%"  stopColor="#9a0810" />
+          <stop offset="83%"  stopColor="#ff2a36" />
+          <stop offset="88%"  stopColor="#5a0408" />
+          <stop offset="94%"  stopColor="#0a0000" />
+          <stop offset="100%" stopColor="#c40914" />
         </linearGradient>
-        <linearGradient id="lavaMid" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="#5a0306" />
-          <stop offset="50%" stopColor="#9a0810" />
-          <stop offset="100%" stopColor="#2a0103" />
-        </linearGradient>
-        <linearGradient id="lavaBright" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="#c8121c" />
-          <stop offset="50%" stopColor="#ff1f2c" />
-          <stop offset="100%" stopColor="#7a0510" />
-        </linearGradient>
-        <filter id="lavaBlur" x="-10%" y="-10%" width="120%" height="120%">
-          <feGaussianBlur stdDeviation="0.4" />
+
+        {/* Marble deformation: low-freq turbulence -> heavy displacement */}
+        <filter id="marbleWarp" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox">
+          <feTurbulence type="fractalNoise" baseFrequency="0.012 0.05" numOctaves="2" seed="7" result="noise">
+            <animate attributeName="baseFrequency" dur="40s" repeatCount="indefinite"
+              values="0.012 0.05; 0.018 0.045; 0.014 0.055; 0.012 0.05" />
+          </feTurbulence>
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="55" xChannelSelector="R" yChannelSelector="G" />
+          <feGaussianBlur stdDeviation="0.35" />
+        </filter>
+
+        <filter id="marbleGlow">
+          <feGaussianBlur stdDeviation="0.6" />
         </filter>
       </defs>
 
       <rect width="100" height="60" fill="#000001" />
 
-      <g filter="url(#lavaBlur)">
-        <path
-          className="lava-line lava-line-slow"
-          d="M-10 12 C 15 4, 35 22, 55 14 S 95 6, 120 18"
-          stroke="url(#lavaDark)"
-          strokeWidth="14"
-          fill="none"
-          strokeLinecap="round"
-        >
-          <animate attributeName="d" dur="38s" repeatCount="indefinite"
-            values="M-10 12 C 15 4, 35 22, 55 14 S 95 6, 120 18;
-                    M-10 14 C 15 6, 35 20, 55 16 S 95 8, 120 16;
-                    M-10 12 C 15 4, 35 22, 55 14 S 95 6, 120 18" />
-        </path>
-
-        <path
-          className="lava-line"
-          d="M-10 22 C 20 14, 40 32, 60 24 S 100 16, 120 28"
-          stroke="url(#lavaMid)"
-          strokeWidth="10"
-          fill="none"
-          strokeLinecap="round"
-        >
-          <animate attributeName="d" dur="44s" repeatCount="indefinite"
-            values="M-10 22 C 20 14, 40 32, 60 24 S 100 16, 120 28;
-                    M-10 24 C 20 16, 40 30, 60 26 S 100 18, 120 26;
-                    M-10 22 C 20 14, 40 32, 60 24 S 100 16, 120 28" />
-        </path>
-
-        <path
-          className="lava-line lava-line-slow"
-          d="M-10 30 C 25 22, 45 40, 65 32 S 105 24, 120 36"
-          stroke="url(#lavaBright)"
-          strokeWidth="6"
-          fill="none"
-          strokeLinecap="round"
-          opacity="0.85"
-        >
-          <animate attributeName="d" dur="52s" repeatCount="indefinite"
-            values="M-10 30 C 25 22, 45 40, 65 32 S 105 24, 120 36;
-                    M-10 32 C 25 24, 45 38, 65 34 S 105 26, 120 34;
-                    M-10 30 C 25 22, 45 40, 65 32 S 105 24, 120 36" />
-        </path>
-
-        <path
-          className="lava-line"
-          d="M-10 38 C 18 30, 38 48, 58 40 S 98 32, 120 44"
-          stroke="url(#lavaMid)"
-          strokeWidth="12"
-          fill="none"
-          strokeLinecap="round"
-        >
-          <animate attributeName="d" dur="46s" repeatCount="indefinite"
-            values="M-10 38 C 18 30, 38 48, 58 40 S 98 32, 120 44;
-                    M-10 40 C 18 32, 38 46, 58 42 S 98 34, 120 42;
-                    M-10 38 C 18 30, 38 48, 58 40 S 98 32, 120 44" />
-        </path>
-
-        <path
-          className="lava-line lava-line-slow"
-          d="M-10 46 C 22 38, 42 56, 62 48 S 102 40, 120 52"
-          stroke="url(#lavaDark)"
-          strokeWidth="16"
-          fill="none"
-          strokeLinecap="round"
-        >
-          <animate attributeName="d" dur="56s" repeatCount="indefinite"
-            values="M-10 46 C 22 38, 42 56, 62 48 S 102 40, 120 52;
-                    M-10 48 C 22 40, 42 54, 62 50 S 102 42, 120 50;
-                    M-10 46 C 22 38, 42 56, 62 48 S 102 40, 120 52" />
-        </path>
-
-        <path
-          className="lava-line"
-          d="M-10 6 C 20 -2, 40 14, 60 6 S 100 -2, 120 10"
-          stroke="url(#lavaMid)"
-          strokeWidth="8"
-          fill="none"
-          strokeLinecap="round"
-          opacity="0.7"
-        >
-          <animate attributeName="d" dur="42s" repeatCount="indefinite"
-            values="M-10 6 C 20 -2, 40 14, 60 6 S 100 -2, 120 10;
-                    M-10 8 C 20 0, 40 12, 60 8 S 100 0, 120 8;
-                    M-10 6 C 20 -2, 40 14, 60 6 S 100 -2, 120 10" />
-        </path>
+      {/* Two displaced layers, offset & differently scaled for organic depth */}
+      <g filter="url(#marbleWarp)">
+        <rect x="-10" y="-10" width="120" height="80" fill="url(#marbleBands)" />
       </g>
+      <g filter="url(#marbleWarp)" opacity="0.55" style={{ mixBlendMode: "screen" }}>
+        <rect x="-15" y="-10" width="130" height="80" fill="url(#marbleBands)" transform="translate(8 0) scale(1.05 1)" />
+      </g>
+
+      {/* Central darkening for text legibility */}
+      <radialGradient id="vignette" cx="50%" cy="55%" r="60%">
+        <stop offset="0%" stopColor="#000" stopOpacity="0.7" />
+        <stop offset="55%" stopColor="#000" stopOpacity="0.25" />
+        <stop offset="100%" stopColor="#000" stopOpacity="0" />
+      </radialGradient>
+      <rect width="100" height="60" fill="url(#vignette)" />
     </svg>
   </div>
 );
@@ -156,10 +103,11 @@ const Index = () => {
       <Navbar />
 
       <main>
-        <section className="hero">
-          <h1>DEER&apos;s SPACE</h1>
-          <p>comunidade para quem vive online. sempre.</p>
+        <section className="hero" id="inicio">
           <CurvedLines />
+          <h1>DEER&apos;S<br />SPACE</h1>
+          <p>comunidade para quem vive online. sempre.</p>
+          <a href="#sobre" className="scroll-pill">role para explorar</a>
         </section>
 
         <section className="about" id="sobre">
