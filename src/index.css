@@ -261,7 +261,7 @@
     width: 5px;
     height: 5px;
     border-radius: 50%;
-    background: hsl(var(--deer-brand));
+    background: #ff2230;
     transform: translateX(-50%);
   }
 
