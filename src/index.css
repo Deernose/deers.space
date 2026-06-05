@@ -250,7 +250,7 @@
   .navbar ul li a:hover,
   .navbar ul li a:focus-visible,
   .navbar ul li a.is-active {
-    color: hsl(var(--deer-brand));
+    color: #ff2230;
   }
 
   .navbar ul li a.is-active::after {
