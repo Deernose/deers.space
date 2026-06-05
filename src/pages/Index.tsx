@@ -103,10 +103,11 @@ const Index = () => {
       <Navbar />
 
       <main>
-        <section className="hero">
-          <h1>DEER&apos;s SPACE</h1>
-          <p>comunidade para quem vive online. sempre.</p>
+        <section className="hero" id="inicio">
           <CurvedLines />
+          <h1>DEER&apos;S<br />SPACE</h1>
+          <p>comunidade para quem vive online. sempre.</p>
+          <a href="#sobre" className="scroll-pill">role para explorar</a>
         </section>
 
         <section className="about" id="sobre">
