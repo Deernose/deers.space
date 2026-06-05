@@ -324,12 +324,12 @@
   }
 
   .hero h1 {
-    font-size: 92px;
-    line-height: 0.92;
+    font-size: 104px;
+    line-height: 0.9;
     margin: 0 0 22px;
     font-weight: 900;
-    letter-spacing: -2px;
-    color: hsl(var(--deer-brand));
+    letter-spacing: -3px;
+    color: #ff2230;
     text-transform: uppercase;
     text-shadow: 0 6px 30px rgba(0,0,0,0.55);
   }
@@ -338,24 +338,46 @@
     font-size: 18px;
     margin: 0;
     max-width: 460px;
-    color: hsl(var(--deer-brand));
+    color: #ff2230;
     opacity: 0.95;
     line-height: 1.5;
     text-shadow: 0 2px 14px rgba(0,0,0,0.6);
   }
 
   .scroll-pill {
-    margin-top: 56px;
-    padding: 10px 22px;
-    border-radius: 999px 999px 0 0;
+    padding: 12px 28px;
+    border-radius: 14px 14px 0 0;
     background: #000001;
-    color: hsl(var(--deer-brand));
+    color: #ff2230;
     font-size: 13px;
     text-transform: lowercase;
+    text-align: center;
     position: absolute;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
+  }
+
+  /* Outward concave curves at the base corners — tab/sticker shape */
+  .scroll-pill::before,
+  .scroll-pill::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 14px;
+    height: 14px;
+    background: transparent;
+    pointer-events: none;
+  }
+  .scroll-pill::before {
+    left: -14px;
+    border-bottom-right-radius: 14px;
+    box-shadow: 7px 7px 0 0 #000001;
+  }
+  .scroll-pill::after {
+    right: -14px;
+    border-bottom-left-radius: 14px;
+    box-shadow: -7px 7px 0 0 #000001;
   }
 
 
