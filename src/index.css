@@ -232,8 +232,9 @@
     list-style: none;
     margin: 0;
     padding: 0;
-    gap: 40px;
-    justify-self: center;
+    gap: 28px;
+    justify-self: start;
+    grid-column: 1;
   }
 
   .navbar ul li {
