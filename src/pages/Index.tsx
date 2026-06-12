@@ -56,28 +56,17 @@ const CurvedLines = () => (
           <stop offset="1.00" stopColor="#000000" />
         </linearGradient>
 
-        {/* Strong low-freq turbulence with heavy displacement = marbled liquid */}
-        <filter id="marbleWarp" x="-30%" y="-30%" width="160%" height="160%" filterUnits="objectBoundingBox">
-          <feTurbulence type="fractalNoise" baseFrequency="0.013 0.014" numOctaves="3" seed="11" result="noise" />
-          <feDisplacementMap in="SourceGraphic" in2="noise" scale="120" xChannelSelector="R" yChannelSelector="G">
-            <animate attributeName="scale" dur="18s" repeatCount="indefinite"
-              calcMode="spline" keyTimes="0; 0.5; 1"
-              keySplines="0.45 0 0.55 1; 0.45 0 0.55 1"
-              values="118; 124; 118" />
-          </feDisplacementMap>
-          <feGaussianBlur stdDeviation="0.25" />
+        {/* Lower-cost turbulence + displacement, animated via CSS transform */}
+        <filter id="marbleWarp" x="0%" y="0%" width="100%" height="100%" filterUnits="objectBoundingBox">
+          <feTurbulence type="fractalNoise" baseFrequency="0.013 0.014" numOctaves="2" seed="11" result="noise" />
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="90" xChannelSelector="R" yChannelSelector="G" />
         </filter>
       </defs>
 
       <rect width="100" height="60" fill="#000001" />
 
       <g filter="url(#marbleWarp)">
-        <rect x="-20" y="-20" width="140" height="100" fill="url(#marbleBands)">
-          <animateTransform attributeName="transform" type="translate" dur="40s" repeatCount="indefinite"
-            calcMode="spline" keyTimes="0; 0.5; 1"
-            keySplines="0.45 0 0.55 1; 0.45 0 0.55 1"
-            values="0 0; 6 -4; 0 0" additive="sum" />
-        </rect>
+        <rect className="marble-rect" x="-30" y="-30" width="160" height="120" fill="url(#marbleBands)" />
       </g>
 
       {/* Subtle vignette to anchor text */}
