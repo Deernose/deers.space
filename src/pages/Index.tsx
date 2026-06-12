@@ -66,7 +66,12 @@ const CurvedLines = () => (
       <rect width="100" height="60" fill="#000001" />
 
       <g filter="url(#marbleWarp)">
-        <rect className="marble-rect" x="-30" y="-30" width="160" height="120" fill="url(#marbleBands)" />
+        <g>
+          <animateTransform attributeName="transform" type="translate" dur="30s" repeatCount="indefinite"
+            calcMode="linear" keyTimes="0;0.25;0.5;0.75;1"
+            values="0 0; 4 -2; 0 -3; -4 -2; 0 0" />
+          <rect x="-30" y="-30" width="160" height="120" fill="url(#marbleBands)" />
+        </g>
       </g>
 
       {/* Subtle vignette to anchor text */}
