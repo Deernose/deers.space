@@ -72,7 +72,12 @@ const CurvedLines = () => (
       <rect width="100" height="60" fill="#000001" />
 
       <g filter="url(#marbleWarp)">
-        <rect x="-20" y="-20" width="140" height="100" fill="url(#marbleBands)" />
+        <rect x="-20" y="-20" width="140" height="100" fill="url(#marbleBands)">
+          <animateTransform attributeName="transform" type="translate" dur="40s" repeatCount="indefinite"
+            calcMode="spline" keyTimes="0; 0.5; 1"
+            keySplines="0.45 0 0.55 1; 0.45 0 0.55 1"
+            values="0 0; 6 -4; 0 0" additive="sum" />
+        </rect>
       </g>
 
       {/* Subtle vignette to anchor text */}
