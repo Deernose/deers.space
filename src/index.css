@@ -539,19 +539,6 @@
 }
 
 @layer utilities {
-  .marble-rect {
-    transform-box: fill-box;
-    transform-origin: center;
-    animation: marbleDrift 50s ease-in-out infinite;
-    will-change: transform;
-  }
-
-  @keyframes marbleDrift {
-    0%   { transform: translate(0px, 0px); }
-    50%  { transform: translate(3px, -2px); }
-    100% { transform: translate(0px, 0px); }
-  }
-
   @keyframes lavaDrift {
     0% { transform: translateX(-2%) translateY(1%) scaleX(1); }
     33% { transform: translateX(8%) translateY(-2%) scaleX(1.06); }
