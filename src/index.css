@@ -360,12 +360,13 @@
   }
 
   .hero h1 .line-deers {
+    letter-spacing: 0.06em;
     transform: scaleX(1);
   }
 
   .hero h1 .line-space {
-    /* SPACE is naturally wider than DEER'S — squeeze it to match DEER'S width */
-    transform: scaleX(0.86);
+    letter-spacing: 0;
+    transform: scaleX(1);
   }
 
   .hero p {
