@@ -193,18 +193,32 @@
   .navbar .logo {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    color: hsl(var(--foreground));
+    gap: 8px;
+    color: #ff2230;
+    font-family: "Archivo Black", "Archivo", system-ui, sans-serif;
     font-weight: 900;
     font-size: 18px;
-    line-height: 1;
-    letter-spacing: 0.5px;
+    line-height: 0.95;
+    letter-spacing: 0;
     text-transform: uppercase;
     justify-self: start;
   }
 
   .navbar .logo-text {
-    display: inline-block;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar .logo-text .logo-deers,
+  .navbar .logo-text .logo-space {
+    display: block;
+    transform-origin: left center;
+  }
+
+  .navbar .logo-text .logo-space {
+    /* match DEER'S width */
+    transform: scaleX(0.84);
   }
 
   .navbar .logo-star {
