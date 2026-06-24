@@ -90,13 +90,13 @@ const CurvedLines = () => (
 const Index = () => {
   const deersRef = useRef<HTMLSpanElement | null>(null);
   const spaceRef = useRef<HTMLSpanElement | null>(null);
-  const paraRef = useRef<HTMLParagraphElement | null>(null);
+  const sub1Ref = useRef<HTMLSpanElement | null>(null);
+  const sub2Ref = useRef<HTMLSpanElement | null>(null);
 
   useLayoutEffect(() => {
     const equalize = () => {
       const d = deersRef.current;
       const s = spaceRef.current;
-      const p = paraRef.current;
       if (!d || !s) return;
       d.style.transform = "scaleX(1)";
       s.style.transform = "scaleX(1)";
@@ -105,10 +105,12 @@ const Index = () => {
       const target = Math.max(dw, sw);
       if (dw < target) d.style.transform = `scaleX(${target / dw})`;
       if (sw < target) s.style.transform = `scaleX(${target / sw})`;
-      if (p) {
-        p.style.width = `${target}px`;
-        p.style.maxWidth = `${target}px`;
-      }
+      [sub1Ref.current, sub2Ref.current].forEach((el) => {
+        if (!el) return;
+        el.style.transform = "scaleX(1)";
+        const w = el.getBoundingClientRect().width;
+        if (w > 0) el.style.transform = `scaleX(${target / w})`;
+      });
     };
     equalize();
     window.addEventListener("resize", equalize);
@@ -146,7 +148,10 @@ const Index = () => {
             <span ref={deersRef} className="line line-deers">DEER&apos;S</span>
             <span ref={spaceRef} className="line line-space">SPACE</span>
           </h1>
-          <p ref={paraRef}>comunidade para quem<br />vive online. sempre.</p>
+          <p>
+            <span ref={sub1Ref} className="sub-line">comunidade para quem</span>
+            <span ref={sub2Ref} className="sub-line">vive online. sempre.</span>
+          </p>
           <a href="#sobre" className="scroll-pill">role para explorar</a>
         </section>
 

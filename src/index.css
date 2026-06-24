@@ -197,9 +197,9 @@
     color: #ff2230;
     font-family: "Archivo Black", "Archivo", system-ui, sans-serif;
     font-weight: 900;
-    font-size: 18px;
-    line-height: 0.95;
-    letter-spacing: 0;
+    font-size: 24px;
+    line-height: 0.9;
+    letter-spacing: -0.04em;
     text-transform: uppercase;
     justify-self: start;
   }
@@ -222,8 +222,8 @@
   }
 
   .navbar .logo-star {
-    color: hsl(var(--deer-brand));
-    font-size: 18px;
+    color: #ff2230;
+    font-size: 22px;
     line-height: 1;
     margin: 0;
     align-self: center;
@@ -360,25 +360,29 @@
   }
 
   .hero h1 .line-deers {
-    letter-spacing: 0.06em;
+    letter-spacing: -0.04em;
     transform: scaleX(1);
   }
 
   .hero h1 .line-space {
-    letter-spacing: 0;
+    letter-spacing: -0.04em;
     transform: scaleX(1);
   }
 
   .hero p {
     font-family: "Archivo", system-ui, sans-serif;
-    font-size: 24px;
+    font-size: 26px;
     margin: 14px 0 0;
-    max-width: none;
     color: #ff2230;
     opacity: 0.95;
-    line-height: 1.15;
+    line-height: 1.1;
     font-weight: 600;
     text-shadow: 0 2px 14px rgba(0,0,0,0.6);
+  }
+
+  .hero p .sub-line {
+    display: block;
+    transform-origin: center;
   }
 
   .scroll-pill {
