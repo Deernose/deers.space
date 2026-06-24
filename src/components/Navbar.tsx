@@ -17,9 +17,8 @@ const Navbar = () => {
     <nav className="navbar" aria-label="Navegação principal">
       <a href="#inicio" className="logo" title="DEER'S SPACE">
         <span className="logo-text">
-          DEER&apos;S
-          <br />
-          SPACE
+          <span className="logo-deers">DEER&apos;S</span>
+          <span className="logo-space">SPACE</span>
         </span>
         <span className="logo-star" aria-hidden="true">✦</span>
       </a>
