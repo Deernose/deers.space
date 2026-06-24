@@ -114,8 +114,11 @@ const Index = () => {
       <main>
         <section className="hero" id="inicio">
           <CurvedLines />
-          <h1>DEER&apos;S<br />SPACE</h1>
-          <p>comunidade para quem vive online. sempre.</p>
+          <h1>
+            <span className="line line-deers">DEER&apos;S</span>
+            <span className="line line-space">SPACE</span>
+          </h1>
+          <p>comunidade para quem<br />vive online. sempre.</p>
           <a href="#sobre" className="scroll-pill">role para explorar</a>
         </section>
 
