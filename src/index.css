@@ -193,18 +193,32 @@
   .navbar .logo {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    color: hsl(var(--foreground));
+    gap: 8px;
+    color: #ff2230;
+    font-family: "Archivo Black", "Archivo", system-ui, sans-serif;
     font-weight: 900;
     font-size: 18px;
-    line-height: 1;
-    letter-spacing: 0.5px;
+    line-height: 0.95;
+    letter-spacing: 0;
     text-transform: uppercase;
     justify-self: start;
   }
 
   .navbar .logo-text {
-    display: inline-block;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar .logo-text .logo-deers,
+  .navbar .logo-text .logo-space {
+    display: block;
+    transform-origin: left center;
+  }
+
+  .navbar .logo-text .logo-space {
+    /* match DEER'S width */
+    transform: scaleX(0.84);
   }
 
   .navbar .logo-star {
@@ -346,19 +360,23 @@
   }
 
   .hero h1 .line-deers {
-    /* DEER'S has 6 glyphs vs SPACE's 5 — squeeze it to match SPACE width */
-    transform: scaleX(0.82);
+    transform: scaleX(1);
+  }
+
+  .hero h1 .line-space {
+    /* SPACE is naturally wider than DEER'S — squeeze it to match DEER'S width */
+    transform: scaleX(0.86);
   }
 
   .hero p {
     font-family: "Archivo", system-ui, sans-serif;
-    font-size: 17px;
-    margin: 0;
-    max-width: 320px;
+    font-size: 24px;
+    margin: 14px 0 0;
+    max-width: none;
     color: #ff2230;
     opacity: 0.95;
     line-height: 1.15;
-    font-weight: 500;
+    font-weight: 600;
     text-shadow: 0 2px 14px rgba(0,0,0,0.6);
   }
 
