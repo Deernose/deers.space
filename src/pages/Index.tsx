@@ -1,4 +1,3 @@
-import { useLayoutEffect, useRef } from "react";
 import { Github, Instagram, Music, Play, Twitter, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
