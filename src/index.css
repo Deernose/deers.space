@@ -208,17 +208,23 @@
     display: inline-flex;
     flex-direction: column;
     align-items: flex-start;
+    line-height: 0.88;
   }
 
   .navbar .logo-text .logo-deers,
   .navbar .logo-text .logo-space {
     display: block;
+    transform: scaleX(0.96);
     transform-origin: left center;
+    line-height: 1;
+  }
+
+  .navbar .logo-text .logo-deers {
+    letter-spacing: -0.06em;
   }
 
   .navbar .logo-text .logo-space {
-    /* match DEER'S width */
-    transform: scaleX(0.84);
+    letter-spacing: 0em;
   }
 
   .navbar .logo-star {
@@ -341,11 +347,10 @@
 
   .hero h1 {
     font-family: "Archivo Black", "Archivo", system-ui, sans-serif;
-    font-size: 120px;
-    line-height: 0.88;
+    font-size: clamp(74px, 9vw, 152px);
+    line-height: 0.83;
     margin: 0 0 18px;
-    font-weight: 900;
-    letter-spacing: -2px;
+    font-weight: 400;
     color: #ff2230;
     text-transform: uppercase;
     text-shadow: 0 6px 30px rgba(0,0,0,0.55);
@@ -356,33 +361,36 @@
 
   .hero h1 .line {
     display: block;
+    transform: scaleX(0.96);
     transform-origin: center;
   }
 
   .hero h1 .line-deers {
-    letter-spacing: -0.04em;
-    transform: scaleX(1);
+    letter-spacing: -0.06em;
   }
 
   .hero h1 .line-space {
-    letter-spacing: -0.04em;
-    transform: scaleX(1);
+    letter-spacing: 0em;
   }
 
   .hero p {
-    font-family: "Archivo", system-ui, sans-serif;
-    font-size: 26px;
-    margin: 14px 0 0;
+    font-family: "Poppins", system-ui, sans-serif;
+    font-size: clamp(28px, 2.2vw, 40px);
+    margin: 30px 0 0;
     color: #ff2230;
     opacity: 0.95;
-    line-height: 1.1;
-    font-weight: 600;
+    line-height: 1.05;
+    font-weight: 400;
+    letter-spacing: -0.015em;
     text-shadow: 0 2px 14px rgba(0,0,0,0.6);
   }
 
   .hero p .sub-line {
     display: block;
-    transform-origin: center;
+  }
+
+  .hero p .sub-line + .sub-line {
+    margin-top: 0.12em;
   }
 
   .scroll-pill {

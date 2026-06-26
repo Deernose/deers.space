@@ -1,4 +1,4 @@
-import { useState, useLayoutEffect, useRef } from "react";
+import { useState } from "react";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 
 const navLinks = [
@@ -12,38 +12,13 @@ const navLinks = [
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("#inicio");
-  const deersRef = useRef<HTMLSpanElement | null>(null);
-  const spaceRef = useRef<HTMLSpanElement | null>(null);
-
-  useLayoutEffect(() => {
-    const equalize = () => {
-      const d = deersRef.current;
-      const s = spaceRef.current;
-      if (!d || !s) return;
-      d.style.transform = "scaleX(1)";
-      s.style.transform = "scaleX(1)";
-      d.style.display = "inline-block";
-      s.style.display = "inline-block";
-      d.style.transformOrigin = "left center";
-      s.style.transformOrigin = "left center";
-      const dw = d.getBoundingClientRect().width;
-      const sw = s.getBoundingClientRect().width;
-      if (!dw || !sw) return;
-      const target = Math.max(dw, sw);
-      if (dw < target) d.style.transform = `scaleX(${target / dw})`;
-      if (sw < target) s.style.transform = `scaleX(${target / sw})`;
-    };
-    equalize();
-    window.addEventListener("resize", equalize);
-    return () => window.removeEventListener("resize", equalize);
-  }, []);
 
   return (
     <nav className="navbar" aria-label="Navegação principal">
       <a href="#inicio" className="logo" title="DEER'S SPACE">
         <span className="logo-text">
-          <span ref={deersRef} className="logo-deers">DEER&apos;S</span>
-          <span ref={spaceRef} className="logo-space">SPACE</span>
+          <span className="logo-deers">DEER&apos;S</span>
+          <span className="logo-space">SPACE</span>
         </span>
         <span className="logo-star" aria-hidden="true">✦</span>
       </a>

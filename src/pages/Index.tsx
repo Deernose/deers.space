@@ -1,4 +1,3 @@
-import { useLayoutEffect, useRef } from "react";
 import { Github, Instagram, Music, Play, Twitter, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
@@ -88,34 +87,7 @@ const CurvedLines = () => (
 
 
 const Index = () => {
-  const deersRef = useRef<HTMLSpanElement | null>(null);
-  const spaceRef = useRef<HTMLSpanElement | null>(null);
-  const sub1Ref = useRef<HTMLSpanElement | null>(null);
-  const sub2Ref = useRef<HTMLSpanElement | null>(null);
 
-  useLayoutEffect(() => {
-    const equalize = () => {
-      const d = deersRef.current;
-      const s = spaceRef.current;
-      if (!d || !s) return;
-      d.style.transform = "scaleX(1)";
-      s.style.transform = "scaleX(1)";
-      const dw = d.getBoundingClientRect().width;
-      const sw = s.getBoundingClientRect().width;
-      const target = Math.max(dw, sw);
-      if (dw < target) d.style.transform = `scaleX(${target / dw})`;
-      if (sw < target) s.style.transform = `scaleX(${target / sw})`;
-      [sub1Ref.current, sub2Ref.current].forEach((el) => {
-        if (!el) return;
-        el.style.transform = "scaleX(1)";
-        const w = el.getBoundingClientRect().width;
-        if (w > 0) el.style.transform = `scaleX(${target / w})`;
-      });
-    };
-    equalize();
-    window.addEventListener("resize", equalize);
-    return () => window.removeEventListener("resize", equalize);
-  }, []);
 
   return (
     <div className="site-shell">
@@ -145,12 +117,12 @@ const Index = () => {
         <section className="hero" id="inicio">
           <CurvedLines />
           <h1>
-            <span ref={deersRef} className="line line-deers">DEER&apos;S</span>
-            <span ref={spaceRef} className="line line-space">SPACE</span>
+            <span className="line line-deers">DEER&apos;S</span>
+            <span className="line line-space">SPACE</span>
           </h1>
           <p>
-            <span ref={sub1Ref} className="sub-line">comunidade para quem</span>
-            <span ref={sub2Ref} className="sub-line">vive online. sempre.</span>
+            <span className="sub-line">comunidade para quem</span>
+            <span className="sub-line">vive online. sempre.</span>
           </p>
           <a href="#sobre" className="scroll-pill">role para explorar</a>
         </section>
