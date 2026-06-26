@@ -117,12 +117,12 @@ const Index = () => {
         <section className="hero" id="inicio">
           <CurvedLines />
           <h1>
-            <span ref={deersRef} className="line line-deers">DEER&apos;S</span>
-            <span ref={spaceRef} className="line line-space">SPACE</span>
+            <span className="line line-deers">DEER&apos;S</span>
+            <span className="line line-space">SPACE</span>
           </h1>
           <p>
-            <span ref={sub1Ref} className="sub-line">comunidade para quem</span>
-            <span ref={sub2Ref} className="sub-line">vive online. sempre.</span>
+            <span className="sub-line">comunidade para quem</span>
+            <span className="sub-line">vive online. sempre.</span>
           </p>
           <a href="#sobre" className="scroll-pill">role para explorar</a>
         </section>
