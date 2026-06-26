@@ -87,34 +87,7 @@ const CurvedLines = () => (
 
 
 const Index = () => {
-  const deersRef = useRef<HTMLSpanElement | null>(null);
-  const spaceRef = useRef<HTMLSpanElement | null>(null);
-  const sub1Ref = useRef<HTMLSpanElement | null>(null);
-  const sub2Ref = useRef<HTMLSpanElement | null>(null);
 
-  useLayoutEffect(() => {
-    const equalize = () => {
-      const d = deersRef.current;
-      const s = spaceRef.current;
-      if (!d || !s) return;
-      d.style.transform = "scaleX(1)";
-      s.style.transform = "scaleX(1)";
-      const dw = d.getBoundingClientRect().width;
-      const sw = s.getBoundingClientRect().width;
-      const target = Math.max(dw, sw);
-      if (dw < target) d.style.transform = `scaleX(${target / dw})`;
-      if (sw < target) s.style.transform = `scaleX(${target / sw})`;
-      [sub1Ref.current, sub2Ref.current].forEach((el) => {
-        if (!el) return;
-        el.style.transform = "scaleX(1)";
-        const w = el.getBoundingClientRect().width;
-        if (w > 0) el.style.transform = `scaleX(${target / w})`;
-      });
-    };
-    equalize();
-    window.addEventListener("resize", equalize);
-    return () => window.removeEventListener("resize", equalize);
-  }, []);
 
   return (
     <div className="site-shell">
