@@ -128,6 +128,10 @@ const Index = () => {
           <a href="#sobre" className="scroll-pill">role para explorar</a>
         </section>
 
+        <ProductCatalog />
+
+
+
         <section className="about" id="sobre">
           <div className="text">
             <h2>Sobre</h2>
