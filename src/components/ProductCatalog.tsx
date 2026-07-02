@@ -53,63 +53,92 @@ const ProductCatalog = () => {
   };
 
   return (
-    <section className="catalog" id="catalogo" aria-label="Catálogo de produtos">
-      <div className="catalog-tags" aria-hidden="true">
-        {tags.map((t) => (
-          <span key={t} className="catalog-tag">
-            <Plus size={12} strokeWidth={2.4} />
-            {t}
-          </span>
-        ))}
-      </div>
-
-      <div className="catalog-header">
-        <h2>
-          <span className="accent">produtos</span> da comunidade
-        </h2>
-        <a href="#catalogo" className="catalog-see-all">
-          ver todos <ArrowUpRight size={14} strokeWidth={2.2} />
-        </a>
-      </div>
-
-      {loading ? (
-        <div className="catalog-loading">carregando…</div>
-      ) : products.length === 0 ? (
-        <div className="catalog-loading">nenhum produto cadastrado ainda.</div>
-      ) : (
-        <ul className="product-grid">
-          {products.map((p) => (
-            <li key={p.id} className="product-card">
-              <div className="product-media">
-                {p.image_url ? (
-                  <img src={p.image_url} alt={p.title} loading="lazy" />
-                ) : (
-                  <div
-                    className="product-placeholder"
-                    aria-label={p.title}
-                    data-letter={p.title.charAt(0).toUpperCase()}
-                  >
-                    <span>{p.title}</span>
-                  </div>
-                )}
-                <button
-                  type="button"
-                  className={`product-like ${liked.has(p.id) ? "is-liked" : ""}`}
-                  onClick={() => toggleLike(p.id)}
-                  aria-label={liked.has(p.id) ? "Remover dos favoritos" : "Adicionar aos favoritos"}
-                >
-                  <Heart size={14} strokeWidth={2} fill={liked.has(p.id) ? "#ff2230" : "none"} />
-                </button>
+    <>
+      <section className="manifesto" aria-label="Manifesto">
+        <div className="manifesto-inner">
+          <div className="manifesto-headline">
+            <h2>
+              não é sobre<br />ter. é sobre ser.
+            </h2>
+            <div className="manifesto-members" aria-label="Membros online">
+              <div className="member-avatars" aria-hidden="true">
+                {[0, 1, 2, 3, 4].map((i) => (
+                  <span key={i} className="member-avatar" style={{ zIndex: 5 - i }} />
+                ))}
               </div>
-              <div className="product-info">
-                <h3>{p.title}</h3>
-                <p className="product-price">{formatPrice(p.price_cents, p.currency)}</p>
-              </div>
-            </li>
+              <span className="member-count">+8k membros online</span>
+            </div>
+          </div>
+          <div className="manifesto-copy">
+            <p>aqui, performance é estilo de vida.</p>
+            <p>conectamos pessoas que vivem</p>
+            <p>no digital com intensidade.</p>
+            <p>sem competição. só evolução.</p>
+            <a href="#catalogo" className="manifesto-link">
+              saiba mais <ArrowUpRight size={14} strokeWidth={2.2} />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="catalog" id="catalogo" aria-label="Catálogo de produtos">
+        <div className="catalog-tags" aria-hidden="true">
+          {tags.map((t) => (
+            <span key={t} className="catalog-tag">
+              <Plus size={12} strokeWidth={2.4} />
+              {t}
+            </span>
           ))}
-        </ul>
-      )}
-    </section>
+        </div>
+
+        <div className="catalog-header">
+          <h2>
+            <span className="accent">produtos</span> da comunidade
+          </h2>
+          <a href="#catalogo" className="catalog-see-all">
+            ver todos <ArrowUpRight size={14} strokeWidth={2.2} />
+          </a>
+        </div>
+
+        {loading ? (
+          <div className="catalog-loading">carregando…</div>
+        ) : products.length === 0 ? (
+          <div className="catalog-loading">nenhum produto cadastrado ainda.</div>
+        ) : (
+          <ul className="product-grid">
+            {products.map((p) => (
+              <li key={p.id} className="product-card">
+                <div className="product-media">
+                  {p.image_url ? (
+                    <img src={p.image_url} alt={p.title} loading="lazy" width={640} height={640} />
+                  ) : (
+                    <div
+                      className="product-placeholder"
+                      aria-label={p.title}
+                      data-letter={p.title.charAt(0).toUpperCase()}
+                    >
+                      <span>{p.title}</span>
+                    </div>
+                  )}
+                  <button
+                    type="button"
+                    className={`product-like ${liked.has(p.id) ? "is-liked" : ""}`}
+                    onClick={() => toggleLike(p.id)}
+                    aria-label={liked.has(p.id) ? "Remover dos favoritos" : "Adicionar aos favoritos"}
+                  >
+                    <Heart size={14} strokeWidth={2} fill={liked.has(p.id) ? "#ff2230" : "none"} />
+                  </button>
+                </div>
+                <div className="product-info">
+                  <h3>{p.title}</h3>
+                  <p className="product-price">{formatPrice(p.price_cents, p.currency)}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
+    </>
   );
 };
 
